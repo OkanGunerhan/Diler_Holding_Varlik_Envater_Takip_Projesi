@@ -1,0 +1,622 @@
+﻿@model Diler_Holding_Varlik_Envater.Models.ENVATER_TAKIP_DB
+
+@{ ViewBag.Title = "Create"; }
+<br />
+<div class="row">
+    <div class="col-lg-1">
+        <div class="form-group">
+            <br />
+            @Html.ActionLink("Geri dön", "MainList", "Home", null, new { @class = "btn btn-info" })
+        </div>
+    </div>
+    <div class="col-lg-11">
+        <div class="form-group">
+            <h2 class="alert-success" style="text-align:center">Kişisel Bilgiler</h2>
+        </div>
+    </div>
+
+</div>
+
+@using (Html.BeginForm())
+{
+@Html.AntiForgeryToken()
+                <input type="submit" value="Sakla" class="btn btn-success" style="visibility:hidden" />
+                                <div class="form-horizontal">
+
+                                    <hr />
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.PERSONEL_SICIL_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Sicil No" } })
+                                                    @Html.ValidationMessageFor(model => model.PERSONEL_SICIL_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.PERSONEL_AD_SOYAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Ad Soyad" } })
+                                                    @Html.ValidationMessageFor(model => model.PERSONEL_AD_SOYAD, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listBolum = new List<SelectListItem>();
+                                                        listBolum.Add(new SelectListItem { Text = "Çelikhane", Value = "Çelikhane" });
+                                                        listBolum.Add(new SelectListItem { Text = "Haddehane", Value = "Haddehane" }); }
+                                                    @Html.DropDownListFor(model => model.PERSONEL_BOLUMU, listBolum, "Bölüm seciniz !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.PERSONEL_BOLUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.PERSONEL_ALT_BOLUM, new { htmlAttributes = new { @class = "form-control", placeholder = "Alt Bölüm" } })
+                                                    @Html.ValidationMessageFor(model => model.PERSONEL_ALT_BOLUM, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.PERSONEL_POZISYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Pozisyon" } })
+                                                    @Html.ValidationMessageFor(model => model.PERSONEL_POZISYON, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listLokasyon = new List<SelectListItem>();
+                                                        listLokasyon.Add(new SelectListItem { Text = "Diler", Value = "Diler" });
+                                                        listLokasyon.Add(new SelectListItem { Text = "Filmaşin", Value = "Filmaşin" });
+                                                        listLokasyon.Add(new SelectListItem { Text = "DNA", Value = "DNA" });
+                                                        listLokasyon.Add(new SelectListItem { Text = "Resa", Value = "Resa" });
+                                                        listLokasyon.Add(new SelectListItem { Text = "Eti-Toprak Liman", Value = "Eti-Toprak Liman" });
+                                                        listLokasyon.Add(new SelectListItem { Text = "Antrepo", Value = "Antrepo" }); }
+                                                    @Html.DropDownListFor(model => model.ISYERI_LOKASYON, listLokasyon, "Lokasyon", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.ISYERI_LOKASYON, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <h4 style="text-align:center">PC</h4>
+                                            @*Bilgisayar Bilgileri*@
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listDomain = new List<SelectListItem>();
+                                                        listDomain.Add(new SelectListItem { Text = "WORKGROUP", Value = "WORKGROUP" });
+                                                        listDomain.Add(new SelectListItem { Text = "DILERHLD.COM", Value = "DILERHLD.COM" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_DOMAIN_GRUBU, listDomain, "Domain !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_DOMAIN_GRUBU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listBilMarka = new List<SelectListItem>();
+                                                        listBilMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                                                        listBilMarka.Add(new SelectListItem { Text = "LENOVO", Value = "LENOVO" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_MARKA, listDomain, "Marka !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MARKA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Model" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MODEL, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Name" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ADI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Ip Adresi" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_IP_ADRESI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_MAC_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Mac Adresi" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MAC_ADRESI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listOS = new List<SelectListItem>();
+                                                        listOS.Add(new SelectListItem { Text = "Windows XP", Value = "Windows XP" });
+                                                        listOS.Add(new SelectListItem { Text = "Windows 7", Value = "Windows 7" });
+                                                        listOS.Add(new SelectListItem { Text = "Windows 10", Value = "Windows 10" }); }
+
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, listOS, "İşletim Sistemi !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listRam = new List<SelectListItem>();
+                                                        listRam.Add(new SelectListItem { Text = "500 MB", Value = "500 MB" });
+                                                        listRam.Add(new SelectListItem { Text = "1 GB", Value = "1 GB" });
+                                                        listRam.Add(new SelectListItem { Text = "2 GB", Value = "2 GB" });
+                                                        listRam.Add(new SelectListItem { Text = "4 GB", Value = "4 GB" });
+                                                        listRam.Add(new SelectListItem { Text = "6 GB", Value = "6 GB" });
+                                                        listRam.Add(new SelectListItem { Text = "8 GB", Value = "8 GB" });
+                                                        listRam.Add(new SelectListItem { Text = "16 GB", Value = "16 GB" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_RAM, listRam, "Ram !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_RAM, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listCpu = new List<SelectListItem>();
+                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i3", Value = "İntel Core i3" });
+                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i5", Value = "İntel Core i5" });
+                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i7", Value = "İntel Core i7" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_ISLEMCI, listCpu, "Cpu !", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLEMCI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-SERI-NO" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_SERI_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listTutanak = new List<SelectListItem>();
+
+                                                        listTutanak.Add(new SelectListItem { Text = "Tutuldu", Value = "Tutuldu" });
+                                                        listTutanak.Add(new SelectListItem { Text = "Tutulmadı", Value = "Tutulmadı" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_TUTANAK_DURUMU, listTutanak, "Tutanak", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listTeslim = new List<SelectListItem>();
+
+                                                        listTeslim.Add(new SelectListItem { Text = "Teslim Edildi", Value = "Teslim Edildi" });
+                                                        listTeslim.Add(new SelectListItem { Text = "Teslim Edilmedi", Value = "Teslim Edilmedi" }); }
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_TESLIM_DURUMU, listTeslim, "Tutanak", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.BILGISAYAR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Açıklama" } })
+                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ACIKLAMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            <h4 style="text-align:center">DISPLAY</h4>
+                                            @*Monitor Bilgileri*@
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listMonitorMarka = new List<SelectListItem>();
+
+                                                        listMonitorMarka.Add(new SelectListItem { Text = "DELL", Value = "DELL" });
+                                                        listMonitorMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                                                        listMonitorMarka.Add(new SelectListItem { Text = "PHILIPS", Value = "PHILIPS" });
+                                                        listMonitorMarka.Add(new SelectListItem { Text = "SAMSUNG", Value = "SAMSUNG" }); }
+                                                    @Html.DropDownListFor(model => model.MONITOR_MARKA, listMonitorMarka, "Marka", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_MARKA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.MONITOR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_MODEL, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.MONITOR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_SERI_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listMonitorInch = new List<SelectListItem>();
+
+                                                        listMonitorInch.Add(new SelectListItem { Text = "14", Value = "14" });
+                                                        listMonitorInch.Add(new SelectListItem { Text = "17", Value = "17" });
+                                                        listMonitorInch.Add(new SelectListItem { Text = "23", Value = "23" });
+                                                        listMonitorInch.Add(new SelectListItem { Text = "27", Value = "27" }); }
+                                                    @Html.DropDownListFor(model => model.MONITOR_INCH, listMonitorInch, "Inch ", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_INCH, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listMonitorTeslim = new List<SelectListItem>();
+
+
+                                                        listMonitorTeslim.Add(new SelectListItem { Text = "Teslim Edildi", Value = "Teslim Edildi" });
+                                                        listMonitorTeslim.Add(new SelectListItem { Text = "Teslim Edilmedi", Value = "Teslim Edilmedi" }); }
+                                                    @Html.DropDownListFor(model => model.MONITOR_TESLIM_DURUMU, listMonitorTeslim, "Teslim Durumu ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listMonitorTutanak = new List<SelectListItem>();
+
+                                                        listMonitorTutanak.Add(new SelectListItem { Text = "Tutanak Tutuldu", Value = "Tutanak Tutuldu" });
+                                                        listMonitorTutanak.Add(new SelectListItem { Text = "Tutanak Tutulmadı", Value = "Tutanak Tutulmadı" }); }
+                                                    @Html.DropDownListFor(model => model.MONITOR_TUTANAK_DURUMU, listMonitorTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+
+
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.MONITOR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                                                    @Html.ValidationMessageFor(model => model.MONITOR_ACIKLAMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            @*Yazıcı*@
+                                            <h4 style="text-align:center">PRINTER</h4>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listYazıcı = new List<SelectListItem>();
+
+                                                        listYazıcı.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                                                        listYazıcı.Add(new SelectListItem { Text = "LEXMARK", Value = "LEXMARK" });
+                                                        listYazıcı.Add(new SelectListItem { Text = "CANON", Value = "CANON" });
+                                                        listYazıcı.Add(new SelectListItem { Text = "SAMSUN", Value = "SAMSUN" });
+                                                        listYazıcı.Add(new SelectListItem { Text = "ZEBRA", Value = "ZEBRA" });
+                                                        listYazıcı.Add(new SelectListItem { Text = "RICOH", Value = "RICOH" }); }
+                                                    @Html.DropDownListFor(model => model.YAZICI_MARKA, listYazıcı, "Marka ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_MARKA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_MODEL, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_SERI_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_TONER_KARTUS_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Kodu" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_TONER_KARTUS_KODU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_BAGLI_KULLANICI, new { htmlAttributes = new { @class = "form-control", placeholder = "Bağlı Kullanıcı" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_BAGLI_KULLANICI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listYazıcıUsb = new List<SelectListItem>();
+
+                                                        listYazıcıUsb.Add(new SelectListItem { Text = "USB", Value = "USB" });
+                                                        listYazıcıUsb.Add(new SelectListItem { Text = "NETWORK", Value = "NETWORK" });
+                                                        listYazıcıUsb.Add(new SelectListItem { Text = "WIFI", Value = "WIFI" }); }
+                                                    @Html.DropDownListFor(model => model.YAZICI_USB, listYazıcıUsb, "Bağlantı Türü ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_USB, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "Ip Adresi" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_IP_ADRESI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listYazıcıMurekkep = new List<SelectListItem>();
+
+
+                                                        listYazıcıMurekkep.Add(new SelectListItem { Text = "KARTUŞ", Value = "KARTUŞ" });
+                                                        listYazıcıMurekkep.Add(new SelectListItem { Text = "TONER", Value = "TONER" }); }
+                                                    @Html.DropDownListFor(model => model.YAZICI_MUREKKEP_TURU, listYazıcıMurekkep, "Mürekkep Türü ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_MUREKKEP_TURU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listYazıcıTeslim = new List<SelectListItem>();
+
+                                                        listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
+                                                        listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
+                                                    @Html.DropDownListFor(model => model.YAZICI_TESLIM_DURUMU, listYazıcıTeslim, "Teslim Durumu ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @{ List<SelectListItem> listYazıcıTutanak = new List<SelectListItem>();
+
+                                                        listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULDU", Value = "TUTANAK TUTULDU" });
+                                                        listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULMADI", Value = "TUTANAK TUTULMADI" }); }
+                                                    @Html.DropDownListFor(model => model.YAZICI_TUTANAK_DURUMU, listYazıcıTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZICI_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZICI_ACIKLAMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            @*Teams&Office*@
+                                            <h4 style="text-align:center">TEAMS&OFFICE</h4>
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "365 ?" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teams ?" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Parola" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola" } })
+                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            @*SAP*@
+
+                                            <div class="form-group">
+                                                <h4 style="text-align:center">SAP</h4>
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_MODUL, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Modul Adı" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_MODUL, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_EMAIL_ADRES, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_EMAIL_ADRES, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_YETKILENDIRME, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Yetki" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_YETKILENDIRME, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_KULLANICI_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı Kodu" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_KULLANICI_KODU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_PAROLA, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Parola" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_PAROLA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_LOGONA_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "Logona Name" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_LOGONA_NAME, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_SCN_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "SCN Name" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_SCN_NAME, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.SAP_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                                                    @Html.ValidationMessageFor(model => model.SAP_ACIKLAMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-2">
+                                            @*WINN*@
+                                            <h4 style="text-align:center">WINN</h4>
+                                            <div class="form-group">
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_MARKA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_MODEL, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_HAT_NUMARASI, new { htmlAttributes = new { @class = "form-control", placeholder = "Hat Numarası" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_HAT_NUMARASI, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Vınn Seri Numarası" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_SERI_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_PIN_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Pin No" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_PIN_NO, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+
+                                                <div class="col-md-10">
+                                                    @Html.EditorFor(model => model.VINN_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                                                    @Html.ValidationMessageFor(model => model.VINN_ACIKLAMA, "", new { @class = "text-danger" })
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

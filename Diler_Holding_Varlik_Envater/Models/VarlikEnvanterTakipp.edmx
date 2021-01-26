@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Varlık_EnvanterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ENVATER_TAKIP_DB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PERSONEL_SICIL_NO" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONEL_AD_SOYAD" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONEL_BOLUMU" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONEL_ALT_BOLUM" Type="varchar" MaxLength="50" />
+          <Property Name="PERSONEL_POZISYON" Type="varchar" MaxLength="50" />
+          <Property Name="ISYERI_LOKASYON" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_DOMAIN_GRUBU" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_MARKA" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_MODEL" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_ADI" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_IP_ADRESI" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_MAC_ADRESI" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_ISLETIM_SISTEMI" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_TUTANAK_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_TESLIM_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_ACIKLAMA" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_RAM" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_ISLEMCI" Type="varchar" MaxLength="50" />
+          <Property Name="BILGISAYAR_SERI_NO" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_MARKA" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_MODEL" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_SERI_NO" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_INCH" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_TESLIM_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_TUTANAK_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="MONITOR_ACIKLAMA" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_MARKA" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_MODEL" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_SERI_NO" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_TONER_KARTUS_KODU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_BAGLI_KULLANICI" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_USB" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_IP_ADRESI" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_MUREKKEP_TURU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_TESLIM_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_TUTANAK_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZICI_ACIKLAMA" Type="varchar" MaxLength="50" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_KULLANICI_ADI" Type="varchar" MaxLength="50" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_MS_365_STATU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_TEAMS_STATU" Type="varchar" MaxLength="50" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_SIFRE" Type="varchar" MaxLength="50" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_MODUL" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_EMAIL_ADRES" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_YETKILENDIRME" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_KULLANICI_KODU" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_PAROLA" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_LOGONA_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_SCN_NAME" Type="varchar" MaxLength="50" />
+          <Property Name="SAP_ACIKLAMA" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_MARKA" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_MODEL" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_HAT_NUMARASI" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_SERI_NO" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_PIN_NO" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_TESLIM_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_TUTANAK_DURUMU" Type="varchar" MaxLength="50" />
+          <Property Name="VINN_ACIKLAMA" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityContainer Name="Varlık_EnvanterModelStoreContainer">
+          <EntitySet Name="ENVATER_TAKIP_DB" EntityType="Self.ENVATER_TAKIP_DB" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Varlık_EnvanterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="Varlık_Envanter_TakippEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ENVATER_TAKIP_DB" EntityType="Varlık_EnvanterModel.ENVATER_TAKIP_DB" />
+        </EntityContainer>
+        <EntityType Name="ENVATER_TAKIP_DB">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PERSONEL_SICIL_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL_AD_SOYAD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL_BOLUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL_ALT_BOLUM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PERSONEL_POZISYON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ISYERI_LOKASYON" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_DOMAIN_GRUBU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_MARKA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_IP_ADRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_MAC_ADRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_ISLETIM_SISTEMI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_TUTANAK_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_TESLIM_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_RAM" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_ISLEMCI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BILGISAYAR_SERI_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_MARKA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_SERI_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_INCH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_TESLIM_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_TUTANAK_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MONITOR_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_MARKA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_SERI_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_TONER_KARTUS_KODU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_BAGLI_KULLANICI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_USB" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_IP_ADRESI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_MUREKKEP_TURU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_TESLIM_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_TUTANAK_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZICI_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_KULLANICI_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_MS_365_STATU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_TEAMS_STATU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_MODUL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_EMAIL_ADRES" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_YETKILENDIRME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_KULLANICI_KODU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_PAROLA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_LOGONA_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_SCN_NAME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="SAP_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_MARKA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_MODEL" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_HAT_NUMARASI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_SERI_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_PIN_NO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_TESLIM_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_TUTANAK_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VINN_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Varlık_EnvanterModelStoreContainer" CdmEntityContainer="Varlık_Envanter_TakippEntities">
+          <EntitySetMapping Name="ENVATER_TAKIP_DB">
+            <EntityTypeMapping TypeName="Varlık_EnvanterModel.ENVATER_TAKIP_DB">
+              <MappingFragment StoreEntitySet="ENVATER_TAKIP_DB">
+                <ScalarProperty Name="VINN_ACIKLAMA" ColumnName="VINN_ACIKLAMA" />
+                <ScalarProperty Name="VINN_TUTANAK_DURUMU" ColumnName="VINN_TUTANAK_DURUMU" />
+                <ScalarProperty Name="VINN_TESLIM_DURUMU" ColumnName="VINN_TESLIM_DURUMU" />
+                <ScalarProperty Name="VINN_PIN_NO" ColumnName="VINN_PIN_NO" />
+                <ScalarProperty Name="VINN_SERI_NO" ColumnName="VINN_SERI_NO" />
+                <ScalarProperty Name="VINN_HAT_NUMARASI" ColumnName="VINN_HAT_NUMARASI" />
+                <ScalarProperty Name="VINN_MODEL" ColumnName="VINN_MODEL" />
+                <ScalarProperty Name="VINN_MARKA" ColumnName="VINN_MARKA" />
+                <ScalarProperty Name="SAP_ACIKLAMA" ColumnName="SAP_ACIKLAMA" />
+                <ScalarProperty Name="SAP_SCN_NAME" ColumnName="SAP_SCN_NAME" />
+                <ScalarProperty Name="SAP_LOGONA_NAME" ColumnName="SAP_LOGONA_NAME" />
+                <ScalarProperty Name="SAP_PAROLA" ColumnName="SAP_PAROLA" />
+                <ScalarProperty Name="SAP_KULLANICI_KODU" ColumnName="SAP_KULLANICI_KODU" />
+                <ScalarProperty Name="SAP_YETKILENDIRME" ColumnName="SAP_YETKILENDIRME" />
+                <ScalarProperty Name="SAP_EMAIL_ADRES" ColumnName="SAP_EMAIL_ADRES" />
+                <ScalarProperty Name="SAP_MODUL" ColumnName="SAP_MODUL" />
+                <ScalarProperty Name="YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE" ColumnName="YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE" />
+                <ScalarProperty Name="YAZILIM_OFFICE_TEAMS_SIFRE" ColumnName="YAZILIM_OFFICE_TEAMS_SIFRE" />
+                <ScalarProperty Name="YAZILIM_OFFICE_TEAMS_TEAMS_STATU" ColumnName="YAZILIM_OFFICE_TEAMS_TEAMS_STATU" />
+                <ScalarProperty Name="YAZILIM_OFFICE_TEAMS_MS_365_STATU" ColumnName="YAZILIM_OFFICE_TEAMS_MS_365_STATU" />
+                <ScalarProperty Name="YAZILIM_OFFICE_TEAMS_KULLANICI_ADI" ColumnName="YAZILIM_OFFICE_TEAMS_KULLANICI_ADI" />
+                <ScalarProperty Name="YAZICI_ACIKLAMA" ColumnName="YAZICI_ACIKLAMA" />
+                <ScalarProperty Name="YAZICI_TUTANAK_DURUMU" ColumnName="YAZICI_TUTANAK_DURUMU" />
+                <ScalarProperty Name="YAZICI_TESLIM_DURUMU" ColumnName="YAZICI_TESLIM_DURUMU" />
+                <ScalarProperty Name="YAZICI_MUREKKEP_TURU" ColumnName="YAZICI_MUREKKEP_TURU" />
+                <ScalarProperty Name="YAZICI_IP_ADRESI" ColumnName="YAZICI_IP_ADRESI" />
+                <ScalarProperty Name="YAZICI_USB" ColumnName="YAZICI_USB" />
+                <ScalarProperty Name="YAZICI_BAGLI_KULLANICI" ColumnName="YAZICI_BAGLI_KULLANICI" />
+                <ScalarProperty Name="YAZICI_TONER_KARTUS_KODU" ColumnName="YAZICI_TONER_KARTUS_KODU" />
+                <ScalarProperty Name="YAZICI_SERI_NO" ColumnName="YAZICI_SERI_NO" />
+                <ScalarProperty Name="YAZICI_MODEL" ColumnName="YAZICI_MODEL" />
+                <ScalarProperty Name="YAZICI_MARKA" ColumnName="YAZICI_MARKA" />
+                <ScalarProperty Name="MONITOR_ACIKLAMA" ColumnName="MONITOR_ACIKLAMA" />
+                <ScalarProperty Name="MONITOR_TUTANAK_DURUMU" ColumnName="MONITOR_TUTANAK_DURUMU" />
+                <ScalarProperty Name="MONITOR_TESLIM_DURUMU" ColumnName="MONITOR_TESLIM_DURUMU" />
+                <ScalarProperty Name="MONITOR_INCH" ColumnName="MONITOR_INCH" />
+                <ScalarProperty Name="MONITOR_SERI_NO" ColumnName="MONITOR_SERI_NO" />
+                <ScalarProperty Name="MONITOR_MODEL" ColumnName="MONITOR_MODEL" />
+                <ScalarProperty Name="MONITOR_MARKA" ColumnName="MONITOR_MARKA" />
+                <ScalarProperty Name="BILGISAYAR_SERI_NO" ColumnName="BILGISAYAR_SERI_NO" />
+                <ScalarProperty Name="BILGISAYAR_ISLEMCI" ColumnName="BILGISAYAR_ISLEMCI" />
+                <ScalarProperty Name="BILGISAYAR_RAM" ColumnName="BILGISAYAR_RAM" />
+                <ScalarProperty Name="BILGISAYAR_ACIKLAMA" ColumnName="BILGISAYAR_ACIKLAMA" />
+                <ScalarProperty Name="BILGISAYAR_TESLIM_DURUMU" ColumnName="BILGISAYAR_TESLIM_DURUMU" />
+                <ScalarProperty Name="BILGISAYAR_TUTANAK_DURUMU" ColumnName="BILGISAYAR_TUTANAK_DURUMU" />
+                <ScalarProperty Name="BILGISAYAR_ISLETIM_SISTEMI" ColumnName="BILGISAYAR_ISLETIM_SISTEMI" />
+                <ScalarProperty Name="BILGISAYAR_MAC_ADRESI" ColumnName="BILGISAYAR_MAC_ADRESI" />
+                <ScalarProperty Name="BILGISAYAR_IP_ADRESI" ColumnName="BILGISAYAR_IP_ADRESI" />
+                <ScalarProperty Name="BILGISAYAR_ADI" ColumnName="BILGISAYAR_ADI" />
+                <ScalarProperty Name="BILGISAYAR_MODEL" ColumnName="BILGISAYAR_MODEL" />
+                <ScalarProperty Name="BILGISAYAR_MARKA" ColumnName="BILGISAYAR_MARKA" />
+                <ScalarProperty Name="BILGISAYAR_DOMAIN_GRUBU" ColumnName="BILGISAYAR_DOMAIN_GRUBU" />
+                <ScalarProperty Name="ISYERI_LOKASYON" ColumnName="ISYERI_LOKASYON" />
+                <ScalarProperty Name="PERSONEL_POZISYON" ColumnName="PERSONEL_POZISYON" />
+                <ScalarProperty Name="PERSONEL_ALT_BOLUM" ColumnName="PERSONEL_ALT_BOLUM" />
+                <ScalarProperty Name="PERSONEL_BOLUMU" ColumnName="PERSONEL_BOLUMU" />
+                <ScalarProperty Name="PERSONEL_AD_SOYAD" ColumnName="PERSONEL_AD_SOYAD" />
+                <ScalarProperty Name="PERSONEL_SICIL_NO" ColumnName="PERSONEL_SICIL_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
