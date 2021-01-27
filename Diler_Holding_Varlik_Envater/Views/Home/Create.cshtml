@@ -11,10 +11,20 @@
     </div>
     <div class="col-lg-11">
         <div class="form-group">
-            <h2 class="alert-success" style="text-align:center">Kişisel Bilgiler</h2>
+            <h2 class="alert-info" style="text-align:center">DILER FABRIKA ENVANTER KAYIT SISTEMI</h2>
         </div>
     </div>
 
+</div>
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <div class="form-group">
+        <h2 class="alert-success" style="text-align:center">Kişisel Bilgiler</h2>
+    </div>
+    </div>
+    <div class="col-md-4"></div>
 </div>
 
 @using (Html.BeginForm())
@@ -117,7 +127,7 @@
                                                     @{ List<SelectListItem> listBilMarka = new List<SelectListItem>();
                                                         listBilMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
                                                         listBilMarka.Add(new SelectListItem { Text = "LENOVO", Value = "LENOVO" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_MARKA, listDomain, "Marka !", new { @class = "form-control" })
+                                                    @Html.DropDownListFor(model => model.BILGISAYAR_MARKA, listBilMarka, "Marka !", new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.BILGISAYAR_MARKA, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -448,15 +458,26 @@
 
                                             <div class="form-group">
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "365 ?" } })
+                                                    @{ List<SelectListItem> listOffice = new List<SelectListItem>();
+
+                                                        listOffice.Add(new SelectListItem { Text = "Office 2007", Value = "Office 2007" });
+                                                        listOffice.Add(new SelectListItem { Text = "Office 2010", Value = "Office 2010" });
+                                                        listOffice.Add(new SelectListItem { Text = "Office 365", Value = "Office 365" });
+                                                        }
+                                                    @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, listOffice, "M.S Office Sürümü?", new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
-
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teams ?" } })
+                                                    @{ List<SelectListItem> listTeams = new List<SelectListItem>();
+
+                                                        listTeams.Add(new SelectListItem { Text = "Kuruldu", Value = "Kuruldu" });
+                                                        listTeams.Add(new SelectListItem { Text = "Kurulmadı", Value = "Kurulmadı" });
+                                                        
+                                                        }
+                                                    @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, listTeams, "Teams ?", new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
@@ -470,7 +491,6 @@
                                             </div>
 
                                             <div class="form-group">
-
                                                 <div class="col-md-10">
                                                     @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola" } })
                                                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, "", new { @class = "text-danger" })
@@ -480,14 +500,21 @@
 
                                         <div class="col-lg-2">
                                             @*SAP*@
-
+                                            <h4 style="text-align:center">SAP</h4>
                                             <div class="form-group">
-                                                <h4 style="text-align:center">SAP</h4>
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_MODUL, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Modul Adı" } })
+                                                    @{ List<SelectListItem> listSapModul = new List<SelectListItem>();
+
+                                                        listSapModul.Add(new SelectListItem { Text = "SAP_MM", Value = "SAP_MM" });
+                                                        listSapModul.Add(new SelectListItem { Text = "SAP_EWM", Value = "SAP_EWM" });
+                                                        listSapModul.Add(new SelectListItem { Text = "SAP_PP", Value = "SAP_PP" });
+                                                        listSapModul.Add(new SelectListItem { Text = "SAP_PM", Value = "SAP_PM" });
+                                                        listSapModul.Add(new SelectListItem { Text = "SAP_HR", Value = "SAP_HR" }); }
+                                                    @Html.DropDownListFor(model => model.SAP_MODUL, listSapModul, "Modül ?", new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.SAP_MODUL, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
+
 
                                             <div class="form-group">
 
@@ -549,12 +576,20 @@
                                         <div class="col-lg-2">
                                             @*WINN*@
                                             <h4 style="text-align:center">WINN</h4>
+
                                             <div class="form-group">
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka" } })
+                                                    @{ List<SelectListItem> listWINNMarka = new List<SelectListItem>();
+
+                                                        listWINNMarka.Add(new SelectListItem { Text = "TURKCELL", Value = "TURKCELL" });
+                                                        listWINNMarka.Add(new SelectListItem { Text = "VODEFONE", Value = "VODEFONE" });
+                                                        listWINNMarka.Add(new SelectListItem { Text = "TURK TELEKOM", Value = "TURK TELEKOM" }); }
+
+                                                    @Html.DropDownListFor(model => model.VINN_MARKA, listWINNMarka, "Marka ?", new { @class = "form-control" })
                                                     @Html.ValidationMessageFor(model => model.VINN_MARKA, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
+
 
                                             <div class="form-group">
 
@@ -590,16 +625,24 @@
                                             <div class="form-group">
 
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                                                    @{ List<SelectListItem> listWINNTutanak = new List<SelectListItem>();
+
+                                                        listWINNTutanak.Add(new SelectListItem { Text = "Tutuldu", Value = "Tutuldu" });
+                                                        listWINNTutanak.Add(new SelectListItem { Text = "Tutulmadı", Value = "Tutulmadı" }); }
+                                                    @Html.DropDownListFor(model => model.VINN_TUTANAK_DURUMU, listWINNTutanak, "Tutanak ?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
 
                                             <div class="form-group">
 
                                                 <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                                                    @{ List<SelectListItem> listWINNTeslim = new List<SelectListItem>();
+
+                                                        listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
+                                                        listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
+                                                    @Html.DropDownListFor(model => model.VINN_TESLIM_DURUMU, listWINNTeslim, "Teslim Durumu?", new { @class = "form-control" })
+                                                    @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
                                                 </div>
                                             </div>
 
