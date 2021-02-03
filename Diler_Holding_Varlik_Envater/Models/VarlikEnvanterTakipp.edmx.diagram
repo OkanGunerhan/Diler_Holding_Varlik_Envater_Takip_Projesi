@@ -4,8 +4,9 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="fd63f4bf98a342c487be8938b47be199" Name="Diagram1" ZoomLevel="29">
+      <Diagram DiagramId="fd63f4bf98a342c487be8938b47be199" Name="Diagram1" ZoomLevel="27">
         <EntityTypeShape EntityType="Varlık_EnvanterModel.ENVATER_TAKIP_DB" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="Varlık_EnvanterModel.LOGIN" Width="1.5" PointX="2.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -34,6 +34,8 @@ public partial class Varlık_Envanter_TakippEntities : DbContext
 
     public virtual DbSet<ENVATER_TAKIP_DB> ENVATER_TAKIP_DB { get; set; }
 
+    public virtual DbSet<LOGIN> LOGINs { get; set; }
+
 }
 
 }

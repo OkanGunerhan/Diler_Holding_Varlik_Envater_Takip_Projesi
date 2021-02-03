@@ -53,9 +53,13 @@
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Octopus.Client, Version=9.0.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Octopus.Client.9.0.7\lib\net452\Octopus.Client.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web.DynamicData" />
@@ -140,6 +144,9 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\ENVATER_TAKIP_DB.cs">
+      <DependentUpon>VarlikEnvanterTakipp.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LOGIN.cs">
       <DependentUpon>VarlikEnvanterTakipp.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VarlikEnvanterTakipp.Context.cs">
@@ -458,26 +465,28 @@
     <Content Include="Views\Home\Details.cshtml" />
     <Content Include="Views\Home\Delete.cshtml" />
     <Content Include="Views\Computer\Delete.cshtml" />
-    <Content Include="Views\Computer\Details.cshtml" />
     <Content Include="Views\Computer\Edit.cshtml" />
     <Content Include="Views\Monitor\Delete.cshtml" />
-    <Content Include="Views\Monitor\Details.cshtml" />
     <Content Include="Views\Monitor\Edit.cshtml" />
     <Content Include="Views\SAP\Delete.cshtml" />
-    <Content Include="Views\SAP\Details.cshtml" />
     <Content Include="Views\SAP\Edit.cshtml" />
     <Content Include="Views\WINN\Delete.cshtml" />
-    <Content Include="Views\WINN\Details.cshtml" />
     <Content Include="Views\WINN\Edit.cshtml" />
     <Content Include="Views\Yazici\Delete.cshtml" />
-    <Content Include="Views\Yazici\Details.cshtml" />
     <Content Include="Views\Yazici\Edit.cshtml" />
     <Content Include="Views\Yazilim_Teams\Delete.cshtml" />
-    <Content Include="Views\Yazilim_Teams\Details.cshtml" />
     <Content Include="Views\Yazilim_Teams\Edit.cshtml" />
+    <Content Include="Views\Home\Login.cshtml" />
+    <Content Include="Views\Computer\Details.cshtml" />
+    <Content Include="Views\Monitor\Details.cshtml" />
+    <Content Include="Views\SAP\Details.cshtml" />
+    <Content Include="Views\WINN\Details.cshtml" />
+    <Content Include="Views\Yazici\Details.cshtml" />
+    <Content Include="Views\Yazilim_Teams\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Deneme\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />

@@ -69,8 +69,17 @@
           <Property Name="VINN_TUTANAK_DURUMU" Type="varchar" MaxLength="50" />
           <Property Name="VINN_ACIKLAMA" Type="varchar" MaxLength="50" />
         </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KULLANICI_ADI" Type="varchar" MaxLength="50" />
+          <Property Name="PAROLA" Type="varchar" MaxLength="50" />
+        </EntityType>
         <EntityContainer Name="Varlık_EnvanterModelStoreContainer">
           <EntitySet Name="ENVATER_TAKIP_DB" EntityType="Self.ENVATER_TAKIP_DB" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LOGIN" EntityType="Self.LOGIN" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -78,6 +87,7 @@
       <Schema Namespace="Varlık_EnvanterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="Varlık_Envanter_TakippEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ENVATER_TAKIP_DB" EntityType="Varlık_EnvanterModel.ENVATER_TAKIP_DB" />
+          <EntitySet Name="LOGINs" EntityType="Varlık_EnvanterModel.LOGIN" />
         </EntityContainer>
         <EntityType Name="ENVATER_TAKIP_DB">
           <Key>
@@ -142,6 +152,14 @@
           <Property Name="VINN_TESLIM_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VINN_TUTANAK_DURUMU" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="VINN_ACIKLAMA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LOGIN">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KULLANICI_ADI" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PAROLA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -210,6 +228,15 @@
                 <ScalarProperty Name="PERSONEL_BOLUMU" ColumnName="PERSONEL_BOLUMU" />
                 <ScalarProperty Name="PERSONEL_AD_SOYAD" ColumnName="PERSONEL_AD_SOYAD" />
                 <ScalarProperty Name="PERSONEL_SICIL_NO" ColumnName="PERSONEL_SICIL_NO" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LOGINs">
+            <EntityTypeMapping TypeName="Varlık_EnvanterModel.LOGIN">
+              <MappingFragment StoreEntitySet="LOGIN">
+                <ScalarProperty Name="PAROLA" ColumnName="PAROLA" />
+                <ScalarProperty Name="KULLANICI_ADI" ColumnName="KULLANICI_ADI" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>

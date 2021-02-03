@@ -1,0 +1,50 @@
+﻿@model Diler_Holding_Varlik_Envater.Models.LOGIN
+@{
+    ViewBag.Title = "Login";
+    Layout = null;
+}
+<div class="row"><br /></div>
+<div class="row"><br /></div>
+<div class="row">
+
+    @using (Html.BeginForm())
+    {
+        <h2 class="alert-success" style="text-align:center">Envanter Giriş</h2>
+        @Html.ValidationSummary(true)
+
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <table class="table table-responsive" >
+                <tr>
+                    <td>
+                        @Html.LabelFor(model => model.KULLANICI_ADI)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.KULLANICI_ADI)
+                        <div style="height: 20px;">
+                            @Html.ValidationMessageFor(model => model.KULLANICI_ADI)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td >
+                        @Html.LabelFor(model => model.PAROLA)
+                    </td>
+                    <td>
+                        @Html.EditorFor(model => model.PAROLA)
+                        <div style="height: 20px;">
+                            @Html.ValidationMessageFor(model => model.PAROLA)
+                        </div>
+                    </td>
+                    <td>
+                        <input class="btn btn-primary" type="submit" value="Login" />
+                    </td>
+                </tr>
+               
+            </table>
+        </div>
+        <div class="col-md-1"></div>
+    }
+</div>
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+

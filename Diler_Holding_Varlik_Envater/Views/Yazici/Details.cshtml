@@ -4,13 +4,14 @@
 
 <div class="row">
     <br />
-    <div class="col-lg-2">
+    <div class="col-lg-1">
         <div class="form-group">
+            <br />
             @Html.ActionLink("Geri dön", "MainList", "Home", null, new { @class = "btn btn-info" })
         </div>
     </div>
-    <div class="col-lg-10">
-        <h2 class="alert-warning" style="text-align:center">Detay</h2>
+    <div class="col-lg-11">
+        <h2 class="alert-info" style="text-align:center">Detay</h2>
     </div>
     
 </div>
@@ -29,7 +30,7 @@
         <div class="col-lg-2">
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PERSONEL_SICIL_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Sicil No" } })
+                    @Html.EditorFor(model => model.PERSONEL_SICIL_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Sicil No", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.PERSONEL_SICIL_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -38,7 +39,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PERSONEL_AD_SOYAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Ad Soyad" } })
+                    @Html.EditorFor(model => model.PERSONEL_AD_SOYAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Ad Soyad", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.PERSONEL_AD_SOYAD, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -47,7 +48,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PERSONEL_BOLUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Bölüm" } })
+                    @Html.EditorFor(model => model.PERSONEL_BOLUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Bölüm", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.PERSONEL_BOLUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -57,7 +58,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PERSONEL_ALT_BOLUM, new { htmlAttributes = new { @class = "form-control", placeholder = "Alt Bölüm" } })
+                    @Html.EditorFor(model => model.PERSONEL_ALT_BOLUM, new { htmlAttributes = new { @class = "form-control", placeholder = "Alt Bölüm", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.PERSONEL_ALT_BOLUM, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -66,7 +67,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.PERSONEL_POZISYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Pozisyon" } })
+                    @Html.EditorFor(model => model.PERSONEL_POZISYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Pozisyon", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.PERSONEL_POZISYON, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -75,7 +76,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.ISYERI_LOKASYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Lokasyon" } })
+                    @Html.EditorFor(model => model.ISYERI_LOKASYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Lokasyon", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.ISYERI_LOKASYON, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -91,7 +92,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_DOMAIN_GRUBU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Domain" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_DOMAIN_GRUBU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Domain", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_DOMAIN_GRUBU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -100,14 +101,14 @@
 
                 <div class="col-md-10">
 
-                    @Html.EditorFor(model => model.BILGISAYAR_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Marka" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Marka", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_MARKA, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Model" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Model", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_MODEL, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -115,7 +116,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Name" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Name", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_ADI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -123,7 +124,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Ip Adresi" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Ip Adresi", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_IP_ADRESI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -131,7 +132,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_MAC_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Mac Adresi" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_MAC_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Mac Adresi", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_MAC_ADRESI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -139,14 +140,14 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-OS" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-OS", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_RAM, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-RAM" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_RAM, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-RAM", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_RAM, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -154,7 +155,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_ISLEMCI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-CPU" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_ISLEMCI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-CPU", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLEMCI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -162,7 +163,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-SERI-NO" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-SERI-NO", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_SERI_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -170,7 +171,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC Tutanak Durumu" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC Tutanak Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -178,7 +179,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC Teslim Durumu" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "PC Teslim Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_TESLIM_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -186,7 +187,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.BILGISAYAR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Açıklama" } })
+                    @Html.EditorFor(model => model.BILGISAYAR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Açıklama", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.BILGISAYAR_ACIKLAMA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -199,7 +200,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka" } })
+                    @Html.EditorFor(model => model.MONITOR_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_MARKA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -207,7 +208,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                    @Html.EditorFor(model => model.MONITOR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_MODEL, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -215,7 +216,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                    @Html.EditorFor(model => model.MONITOR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_SERI_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -223,7 +224,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_INCH, new { htmlAttributes = new { @class = "form-control", placeholder = "Inch" } })
+                    @Html.EditorFor(model => model.MONITOR_INCH, new { htmlAttributes = new { @class = "form-control", placeholder = "Inch", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_INCH, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -231,14 +232,14 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu" } })
+                    @Html.EditorFor(model => model.MONITOR_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_TESLIM_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu" } })
+                    @Html.EditorFor(model => model.MONITOR_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -246,7 +247,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.MONITOR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                    @Html.EditorFor(model => model.MONITOR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.MONITOR_ACIKLAMA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -258,7 +259,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka" } })
+                    @Html.EditorFor(model => model.YAZICI_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_MARKA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -266,7 +267,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                    @Html.EditorFor(model => model.YAZICI_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model", disabled = "disabled"} })
                     @Html.ValidationMessageFor(model => model.YAZICI_MODEL, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -274,21 +275,21 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                    @Html.EditorFor(model => model.YAZICI_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_SERI_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_TONER_KARTUS_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Toner&Kartuş Kodu" } })
+                    @Html.EditorFor(model => model.YAZICI_TONER_KARTUS_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Kodu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_TONER_KARTUS_KODU, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_BAGLI_KULLANICI, new { htmlAttributes = new { @class = "form-control", placeholder = "Bağlı Kullanıcı" } })
+                    @Html.EditorFor(model => model.YAZICI_BAGLI_KULLANICI, new { htmlAttributes = new { @class = "form-control", placeholder = "Bağlı Kullanıcı", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_BAGLI_KULLANICI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -296,7 +297,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_USB, new { htmlAttributes = new { @class = "form-control", placeholder = "USB ?" } })
+                    @Html.EditorFor(model => model.YAZICI_USB, new { htmlAttributes = new { @class = "form-control", placeholder = "USB ?", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_USB, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -304,7 +305,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "Ip Adresi" } })
+                    @Html.EditorFor(model => model.YAZICI_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "Ip Adresi", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_IP_ADRESI, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -312,7 +313,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_MUREKKEP_TURU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Türü" } })
+                    @Html.EditorFor(model => model.YAZICI_MUREKKEP_TURU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Türü", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_MUREKKEP_TURU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -320,7 +321,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu" } })
+                    @Html.EditorFor(model => model.YAZICI_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_TESLIM_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -328,7 +329,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu" } })
+                    @Html.EditorFor(model => model.YAZICI_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_TUTANAK_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -336,7 +337,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZICI_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                    @Html.EditorFor(model => model.YAZICI_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZICI_ACIKLAMA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -348,14 +349,14 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "Username", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, "", new { @class = "text-danger" })
                 </div>
             </div>
 
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "365 ?" } })
+                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "365 ?", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -363,7 +364,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teams ?" } })
+                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teams ?", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -371,7 +372,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Parola" } })
+                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Parola", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -379,7 +380,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola" } })
+                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -391,7 +392,7 @@
             <div class="form-group">
                 <h4 style="text-align:center">SAP</h4>
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_MODUL, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Modul Adı" } })
+                    @Html.EditorFor(model => model.SAP_MODUL, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Modul Adı", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_MODUL, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -399,7 +400,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_EMAIL_ADRES, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                    @Html.EditorFor(model => model.SAP_EMAIL_ADRES, new { htmlAttributes = new { @class = "form-control", placeholder = "Email", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_EMAIL_ADRES, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -407,7 +408,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_YETKILENDIRME, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Yetki" } })
+                    @Html.EditorFor(model => model.SAP_YETKILENDIRME, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Yetki", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_YETKILENDIRME, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -415,7 +416,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_KULLANICI_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı Kodu" } })
+                    @Html.EditorFor(model => model.SAP_KULLANICI_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı Kodu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_KULLANICI_KODU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -423,7 +424,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_PAROLA, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Parola" } })
+                    @Html.EditorFor(model => model.SAP_PAROLA, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Parola", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_PAROLA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -431,7 +432,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_LOGONA_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "Logona Name" } })
+                    @Html.EditorFor(model => model.SAP_LOGONA_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "Logona Name", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_LOGONA_NAME, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -439,7 +440,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_SCN_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "SCN Name" } })
+                    @Html.EditorFor(model => model.SAP_SCN_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "SCN Name", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_SCN_NAME, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -447,7 +448,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.SAP_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                    @Html.EditorFor(model => model.SAP_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.SAP_ACIKLAMA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -458,7 +459,7 @@
             <h4 style="text-align:center">WINN</h4>
             <div class="form-group">
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka" } })
+                    @Html.EditorFor(model => model.VINN_MARKA, new { htmlAttributes = new { @class = "form-control", placeholder = "Marka", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_MARKA, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -466,7 +467,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                    @Html.EditorFor(model => model.VINN_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_MODEL, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -474,14 +475,14 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_HAT_NUMARASI, new { htmlAttributes = new { @class = "form-control", placeholder = "Hat Numarası" } })
+                    @Html.EditorFor(model => model.VINN_HAT_NUMARASI, new { htmlAttributes = new { @class = "form-control", placeholder = "Hat Numarası", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_HAT_NUMARASI, "", new { @class = "text-danger" })
                 </div>
             </div>
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Vınn Seri Numarası" } })
+                    @Html.EditorFor(model => model.VINN_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri Numarası", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_SERI_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -489,7 +490,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_PIN_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Pin No" } })
+                    @Html.EditorFor(model => model.VINN_PIN_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Pin No", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_PIN_NO, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -497,7 +498,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu" } })
+                    @Html.EditorFor(model => model.VINN_TESLIM_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Teslim Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -505,7 +506,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu" } })
+                    @Html.EditorFor(model => model.VINN_TUTANAK_DURUMU, new { htmlAttributes = new { @class = "form-control", placeholder = "Tutanak Durumu", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
                 </div>
             </div>
@@ -513,7 +514,7 @@
             <div class="form-group">
 
                 <div class="col-md-10">
-                    @Html.EditorFor(model => model.VINN_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                    @Html.EditorFor(model => model.VINN_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama", disabled = "disabled" } })
                     @Html.ValidationMessageFor(model => model.VINN_ACIKLAMA, "", new { @class = "text-danger" })
                 </div>
             </div>

@@ -21,644 +21,1195 @@
     <div class="col-md-4"></div>
     <div class="col-md-4">
         <div class="form-group">
-        <h2 class="alert-success" style="text-align:center">Kişisel Bilgiler</h2>
-    </div>
+            <h2 class="alert-success" style="text-align:center">Kişisel Bilgiler</h2>
+        </div>
     </div>
     <div class="col-md-4"></div>
 </div>
 
 @using (Html.BeginForm())
 {
-@Html.AntiForgeryToken()
-                <input type="submit" value="Sakla" class="btn btn-success" style="visibility:hidden" />
-                                <div class="form-horizontal">
-
-                                    <hr />
-                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.PERSONEL_SICIL_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Sicil No" } })
-                                                    @Html.ValidationMessageFor(model => model.PERSONEL_SICIL_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.PERSONEL_AD_SOYAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Ad Soyad" } })
-                                                    @Html.ValidationMessageFor(model => model.PERSONEL_AD_SOYAD, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listBolum = new List<SelectListItem>();
-                                                        listBolum.Add(new SelectListItem { Text = "Çelikhane", Value = "Çelikhane" });
-                                                        listBolum.Add(new SelectListItem { Text = "Haddehane", Value = "Haddehane" }); }
-                                                    @Html.DropDownListFor(model => model.PERSONEL_BOLUMU, listBolum, "Bölüm seciniz !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.PERSONEL_BOLUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.PERSONEL_ALT_BOLUM, new { htmlAttributes = new { @class = "form-control", placeholder = "Alt Bölüm" } })
-                                                    @Html.ValidationMessageFor(model => model.PERSONEL_ALT_BOLUM, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.PERSONEL_POZISYON, new { htmlAttributes = new { @class = "form-control", placeholder = "Pozisyon" } })
-                                                    @Html.ValidationMessageFor(model => model.PERSONEL_POZISYON, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-2">
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listLokasyon = new List<SelectListItem>();
-                                                        listLokasyon.Add(new SelectListItem { Text = "Diler", Value = "Diler" });
-                                                        listLokasyon.Add(new SelectListItem { Text = "Filmaşin", Value = "Filmaşin" });
-                                                        listLokasyon.Add(new SelectListItem { Text = "DNA", Value = "DNA" });
-                                                        listLokasyon.Add(new SelectListItem { Text = "Resa", Value = "Resa" });
-                                                        listLokasyon.Add(new SelectListItem { Text = "Eti-Toprak Liman", Value = "Eti-Toprak Liman" });
-                                                        listLokasyon.Add(new SelectListItem { Text = "Antrepo", Value = "Antrepo" }); }
-                                                    @Html.DropDownListFor(model => model.ISYERI_LOKASYON, listLokasyon, "Lokasyon", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.ISYERI_LOKASYON, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col-lg-2">
-                                            <h4 style="text-align:center">PC</h4>
-                                            @*Bilgisayar Bilgileri*@
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listDomain = new List<SelectListItem>();
-                                                        listDomain.Add(new SelectListItem { Text = "WORKGROUP", Value = "WORKGROUP" });
-                                                        listDomain.Add(new SelectListItem { Text = "DILERHLD.COM", Value = "DILERHLD.COM" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_DOMAIN_GRUBU, listDomain, "Domain !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_DOMAIN_GRUBU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listBilMarka = new List<SelectListItem>();
-                                                        listBilMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
-                                                        listBilMarka.Add(new SelectListItem { Text = "LENOVO", Value = "LENOVO" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_MARKA, listBilMarka, "Marka !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MARKA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Model" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MODEL, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Name" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ADI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Ip Adresi" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_IP_ADRESI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_MAC_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Mac Adresi" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_MAC_ADRESI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listOS = new List<SelectListItem>();
-                                                        listOS.Add(new SelectListItem { Text = "Windows XP", Value = "Windows XP" });
-                                                        listOS.Add(new SelectListItem { Text = "Windows 7", Value = "Windows 7" });
-                                                        listOS.Add(new SelectListItem { Text = "Windows 10", Value = "Windows 10" }); }
-
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, listOS, "İşletim Sistemi !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listRam = new List<SelectListItem>();
-                                                        listRam.Add(new SelectListItem { Text = "500 MB", Value = "500 MB" });
-                                                        listRam.Add(new SelectListItem { Text = "1 GB", Value = "1 GB" });
-                                                        listRam.Add(new SelectListItem { Text = "2 GB", Value = "2 GB" });
-                                                        listRam.Add(new SelectListItem { Text = "4 GB", Value = "4 GB" });
-                                                        listRam.Add(new SelectListItem { Text = "6 GB", Value = "6 GB" });
-                                                        listRam.Add(new SelectListItem { Text = "8 GB", Value = "8 GB" });
-                                                        listRam.Add(new SelectListItem { Text = "16 GB", Value = "16 GB" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_RAM, listRam, "Ram !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_RAM, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listCpu = new List<SelectListItem>();
-                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i3", Value = "İntel Core i3" });
-                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i5", Value = "İntel Core i5" });
-                                                        listCpu.Add(new SelectListItem { Text = "İntel Core i7", Value = "İntel Core i7" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_ISLEMCI, listCpu, "Cpu !", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLEMCI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-SERI-NO" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_SERI_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listTutanak = new List<SelectListItem>();
-
-                                                        listTutanak.Add(new SelectListItem { Text = "Tutuldu", Value = "Tutuldu" });
-                                                        listTutanak.Add(new SelectListItem { Text = "Tutulmadı", Value = "Tutulmadı" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_TUTANAK_DURUMU, listTutanak, "Tutanak", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listTeslim = new List<SelectListItem>();
-
-                                                        listTeslim.Add(new SelectListItem { Text = "Teslim Edildi", Value = "Teslim Edildi" });
-                                                        listTeslim.Add(new SelectListItem { Text = "Teslim Edilmedi", Value = "Teslim Edilmedi" }); }
-                                                    @Html.DropDownListFor(model => model.BILGISAYAR_TESLIM_DURUMU, listTeslim, "Tutanak", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_TESLIM_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.BILGISAYAR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Açıklama" } })
-                                                    @Html.ValidationMessageFor(model => model.BILGISAYAR_ACIKLAMA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2">
-                                            <h4 style="text-align:center">DISPLAY</h4>
-                                            @*Monitor Bilgileri*@
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listMonitorMarka = new List<SelectListItem>();
-
-                                                        listMonitorMarka.Add(new SelectListItem { Text = "DELL", Value = "DELL" });
-                                                        listMonitorMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
-                                                        listMonitorMarka.Add(new SelectListItem { Text = "PHILIPS", Value = "PHILIPS" });
-                                                        listMonitorMarka.Add(new SelectListItem { Text = "SAMSUNG", Value = "SAMSUNG" }); }
-                                                    @Html.DropDownListFor(model => model.MONITOR_MARKA, listMonitorMarka, "Marka", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_MARKA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.MONITOR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_MODEL, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.MONITOR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_SERI_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listMonitorInch = new List<SelectListItem>();
-
-                                                        listMonitorInch.Add(new SelectListItem { Text = "14", Value = "14" });
-                                                        listMonitorInch.Add(new SelectListItem { Text = "17", Value = "17" });
-                                                        listMonitorInch.Add(new SelectListItem { Text = "23", Value = "23" });
-                                                        listMonitorInch.Add(new SelectListItem { Text = "27", Value = "27" }); }
-                                                    @Html.DropDownListFor(model => model.MONITOR_INCH, listMonitorInch, "Inch ", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_INCH, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listMonitorTeslim = new List<SelectListItem>();
-
-
-                                                        listMonitorTeslim.Add(new SelectListItem { Text = "Teslim Edildi", Value = "Teslim Edildi" });
-                                                        listMonitorTeslim.Add(new SelectListItem { Text = "Teslim Edilmedi", Value = "Teslim Edilmedi" }); }
-                                                    @Html.DropDownListFor(model => model.MONITOR_TESLIM_DURUMU, listMonitorTeslim, "Teslim Durumu ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_TESLIM_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listMonitorTutanak = new List<SelectListItem>();
-
-                                                        listMonitorTutanak.Add(new SelectListItem { Text = "Tutanak Tutuldu", Value = "Tutanak Tutuldu" });
-                                                        listMonitorTutanak.Add(new SelectListItem { Text = "Tutanak Tutulmadı", Value = "Tutanak Tutulmadı" }); }
-                                                    @Html.DropDownListFor(model => model.MONITOR_TUTANAK_DURUMU, listMonitorTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.MONITOR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
-                                                    @Html.ValidationMessageFor(model => model.MONITOR_ACIKLAMA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2">
-                                            @*Yazıcı*@
-                                            <h4 style="text-align:center">PRINTER</h4>
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listYazıcı = new List<SelectListItem>();
-
-                                                        listYazıcı.Add(new SelectListItem { Text = "HP", Value = "HP" });
-                                                        listYazıcı.Add(new SelectListItem { Text = "LEXMARK", Value = "LEXMARK" });
-                                                        listYazıcı.Add(new SelectListItem { Text = "CANON", Value = "CANON" });
-                                                        listYazıcı.Add(new SelectListItem { Text = "SAMSUN", Value = "SAMSUN" });
-                                                        listYazıcı.Add(new SelectListItem { Text = "ZEBRA", Value = "ZEBRA" });
-                                                        listYazıcı.Add(new SelectListItem { Text = "RICOH", Value = "RICOH" }); }
-                                                    @Html.DropDownListFor(model => model.YAZICI_MARKA, listYazıcı, "Marka ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_MARKA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_MODEL, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_SERI_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_TONER_KARTUS_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Kodu" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_TONER_KARTUS_KODU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_BAGLI_KULLANICI, new { htmlAttributes = new { @class = "form-control", placeholder = "Bağlı Kullanıcı" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_BAGLI_KULLANICI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listYazıcıUsb = new List<SelectListItem>();
-
-                                                        listYazıcıUsb.Add(new SelectListItem { Text = "USB", Value = "USB" });
-                                                        listYazıcıUsb.Add(new SelectListItem { Text = "NETWORK", Value = "NETWORK" });
-                                                        listYazıcıUsb.Add(new SelectListItem { Text = "WIFI", Value = "WIFI" }); }
-                                                    @Html.DropDownListFor(model => model.YAZICI_USB, listYazıcıUsb, "Bağlantı Türü ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_USB, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "Ip Adresi" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_IP_ADRESI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listYazıcıMurekkep = new List<SelectListItem>();
-
-
-                                                        listYazıcıMurekkep.Add(new SelectListItem { Text = "KARTUŞ", Value = "KARTUŞ" });
-                                                        listYazıcıMurekkep.Add(new SelectListItem { Text = "TONER", Value = "TONER" }); }
-                                                    @Html.DropDownListFor(model => model.YAZICI_MUREKKEP_TURU, listYazıcıMurekkep, "Mürekkep Türü ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_MUREKKEP_TURU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listYazıcıTeslim = new List<SelectListItem>();
-
-                                                        listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
-                                                        listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
-                                                    @Html.DropDownListFor(model => model.YAZICI_TESLIM_DURUMU, listYazıcıTeslim, "Teslim Durumu ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_TESLIM_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listYazıcıTutanak = new List<SelectListItem>();
-
-                                                        listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULDU", Value = "TUTANAK TUTULDU" });
-                                                        listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULMADI", Value = "TUTANAK TUTULMADI" }); }
-                                                    @Html.DropDownListFor(model => model.YAZICI_TUTANAK_DURUMU, listYazıcıTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_TUTANAK_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZICI_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZICI_ACIKLAMA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2">
-                                            @*Teams&Office*@
-                                            <h4 style="text-align:center">TEAMS&OFFICE</h4>
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listOffice = new List<SelectListItem>();
-
-                                                        listOffice.Add(new SelectListItem { Text = "Office 2007", Value = "Office 2007" });
-                                                        listOffice.Add(new SelectListItem { Text = "Office 2010", Value = "Office 2010" });
-                                                        listOffice.Add(new SelectListItem { Text = "Office 365", Value = "Office 365" });
-                                                        }
-                                                    @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, listOffice, "M.S Office Sürümü?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listTeams = new List<SelectListItem>();
-
-                                                        listTeams.Add(new SelectListItem { Text = "Kuruldu", Value = "Kuruldu" });
-                                                        listTeams.Add(new SelectListItem { Text = "Kurulmadı", Value = "Kurulmadı" });
-                                                        
-                                                        }
-                                                    @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, listTeams, "Teams ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Parola" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola" } })
-                                                    @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2">
-                                            @*SAP*@
-                                            <h4 style="text-align:center">SAP</h4>
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listSapModul = new List<SelectListItem>();
-
-                                                        listSapModul.Add(new SelectListItem { Text = "SAP_MM", Value = "SAP_MM" });
-                                                        listSapModul.Add(new SelectListItem { Text = "SAP_EWM", Value = "SAP_EWM" });
-                                                        listSapModul.Add(new SelectListItem { Text = "SAP_PP", Value = "SAP_PP" });
-                                                        listSapModul.Add(new SelectListItem { Text = "SAP_PM", Value = "SAP_PM" });
-                                                        listSapModul.Add(new SelectListItem { Text = "SAP_HR", Value = "SAP_HR" }); }
-                                                    @Html.DropDownListFor(model => model.SAP_MODUL, listSapModul, "Modül ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.SAP_MODUL, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_EMAIL_ADRES, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_EMAIL_ADRES, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_YETKILENDIRME, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Yetki" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_YETKILENDIRME, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_KULLANICI_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı Kodu" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_KULLANICI_KODU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_PAROLA, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Parola" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_PAROLA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_LOGONA_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "Logona Name" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_LOGONA_NAME, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_SCN_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "SCN Name" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_SCN_NAME, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.SAP_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
-                                                    @Html.ValidationMessageFor(model => model.SAP_ACIKLAMA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-2">
-                                            @*WINN*@
-                                            <h4 style="text-align:center">WINN</h4>
-
-                                            <div class="form-group">
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listWINNMarka = new List<SelectListItem>();
-
-                                                        listWINNMarka.Add(new SelectListItem { Text = "TURKCELL", Value = "TURKCELL" });
-                                                        listWINNMarka.Add(new SelectListItem { Text = "VODEFONE", Value = "VODEFONE" });
-                                                        listWINNMarka.Add(new SelectListItem { Text = "TURK TELEKOM", Value = "TURK TELEKOM" }); }
-
-                                                    @Html.DropDownListFor(model => model.VINN_MARKA, listWINNMarka, "Marka ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.VINN_MARKA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_MODEL, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_HAT_NUMARASI, new { htmlAttributes = new { @class = "form-control", placeholder = "Hat Numarası" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_HAT_NUMARASI, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Vınn Seri Numarası" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_SERI_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_PIN_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Pin No" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_PIN_NO, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listWINNTutanak = new List<SelectListItem>();
-
-                                                        listWINNTutanak.Add(new SelectListItem { Text = "Tutuldu", Value = "Tutuldu" });
-                                                        listWINNTutanak.Add(new SelectListItem { Text = "Tutulmadı", Value = "Tutulmadı" }); }
-                                                    @Html.DropDownListFor(model => model.VINN_TUTANAK_DURUMU, listWINNTutanak, "Tutanak ?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @{ List<SelectListItem> listWINNTeslim = new List<SelectListItem>();
-
-                                                        listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
-                                                        listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
-                                                    @Html.DropDownListFor(model => model.VINN_TESLIM_DURUMU, listWINNTeslim, "Teslim Durumu?", new { @class = "form-control" })
-                                                    @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-
-                                                <div class="col-md-10">
-                                                    @Html.EditorFor(model => model.VINN_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
-                                                    @Html.ValidationMessageFor(model => model.VINN_ACIKLAMA, "", new { @class = "text-danger" })
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-
-                                </div>}
+    @Html.AntiForgeryToken()
+    <input type="submit" value="Sakla" class="btn btn-success" />
+    <div class="form-horizontal">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PERSONEL_SICIL_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Sicil No" } })
+                        @Html.ValidationMessageFor(model => model.PERSONEL_SICIL_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.PERSONEL_AD_SOYAD, new { htmlAttributes = new { @class = "form-control", placeholder = "Ad Soyad" } })
+                        @Html.ValidationMessageFor(model => model.PERSONEL_AD_SOYAD, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listBolum = new List<SelectListItem>();
+
+                            listBolum.Add(new SelectListItem { Text = "Bilgi Teknolojileri Müdürlüğü", Value = "Bilgi Teknolojileri Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Çelikhane İşletme Müdürlüğü", Value = "Çelikhane İşletme Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Çevre ve İş Güvenliği Müdürlüğü", Value = "Çevre ve İş Güvenliği Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "ÇH.Makina Bakım Müdürlüğü", Value = "ÇH.Makina Bakım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Çubuk Haddehanesi İşletme Müdürlüğü", Value = "Çubuk Haddehanesi İşletme Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Diler Liman Müdürlüğü", Value = "Diler Liman Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "DNA Tesisi İşletme Müdürlüğü", Value = "DNA Tesisi İşletme Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "DNA Tesisi İşletme MüdürlüğüDNA Tesisi İşletme Müdürlüğü", Value = "DNA Tesisi İşletme Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "DNA Tesisi Kalite Kontrol Müdürlüğü", Value = "DNA Tesisi Kalite Kontrol Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Elektrik Bakım Müdürlüğü", Value = "Elektrik Bakım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Elektrik Yatırım Planlama Müdürlüğü", Value = "Elektrik Yatırım Planlama Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Endüstri Mühendisliği", Value = "Endüstri Mühendisliği" });
+                            listBolum.Add(new SelectListItem { Text = "Fabrika Müdürlüğü", Value = "Fabrika Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Filmaşin Hadd. Elektrik Bakım Müdürlüğü", Value = "Filmaşin Hadd. Elektrik Bakım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Genel İdare Müdürlüğü", Value = "Genel İdare Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "İnşaat ve Montaj Müdürlüğü", Value = "İnşaat ve Montaj Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "İş Güvenliği Müdürlüğü", Value = "İş Güvenliği Müdürlüğü " });
+                            listBolum.Add(new SelectListItem { Text = "K_Güvence Müdürlüğü", Value = "K_Güvence Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Liman ve Lojistik Müdürlüğü", Value = "Liman ve Lojistik Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Nakliyat Müdürlüğü", Value = "Nakliyat Müdürlüğü " });
+                            listBolum.Add(new SelectListItem { Text = "Satınalma Müdürlüğü ", Value = "Satınalma Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Teknoloji Otomasyon Müdürlüğü", Value = "Teknoloji Otomasyon Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi Elektrik Bakım Müdürlüğü", Value = "Tel Çubuk Haddehanesi Elektrik Bakım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi Genel İdare Müdürlüğü", Value = "Tel Çubuk Haddehanesi Genel İdare Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi İşletme Müdürlüğü", Value = "Tel Çubuk Haddehanesi İşletme Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi K_Güvence Müdürlüğü", Value = "Tel Çubuk Haddehanesi K_Güvence Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi Makina Bakım Müdürlüğü", Value = "Tel Çubuk Haddehanesi Makina Bakım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Tel Çubuk Haddehanesi Yardımcı İşletmeler Müdürlüğü", Value = "Tel Çubuk Haddehanesi Yardımcı İşletmeler Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME", Value = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME" });
+                            listBolum.Add(new SelectListItem { Text = "Yardımcı İşletmeler Müdürlüğü", Value = "Yardımcı İşletmeler Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Yatırım Müdürlüğü", Value = "Yatırım Müdürlüğü" });
+                            listBolum.Add(new SelectListItem { Text = "Yatırım Planlama Müdürlüğü", Value = "Yatırım Planlama Müdürlüğü" });
+
+                        }
+                        @Html.DropDownListFor(model => model.PERSONEL_BOLUMU, listBolum, "Bölüm seciniz !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PERSONEL_BOLUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listAltBolum = new List<SelectListItem>();
+
+                            listAltBolum.Add(new SelectListItem { Text = "AMBAR", Value = " AMBAR" });
+                            listAltBolum.Add(new SelectListItem { Text = "AMBAR ŞEFLİĞİ", Value = " AMBAR ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ATÖLYE ŞEFLİĞİ", Value = " ATÖLYE ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "BAKIM ŞEFLİĞİ", Value = " BAKIM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "BİLGİ - İŞLEM ŞEFLİĞİ", Value = " BİLGİ - İŞLEM ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "Bilgi Teknolojileri Müdürlüğü", Value = " Bilgi Teknolojileri Müdürlüğü " });
+                            listAltBolum.Add(new SelectListItem { Text = "CH.ELEKTRİK BAKIM ŞEFLİĞİ", Value = " CH.ELEKTRİK BAKIM ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇELİKHANE KALİTE KONTROL ", Value = " ÇELİKHANE KALİTE KONTROL" });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇELİKHANE MÜDÜRÜ ", Value = " ÇELİKHANE MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Çevre Bölümü ", Value = " Çevre Bölümü" });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇH.MAKİNA BAKIM MÜDÜRÜ ", Value = " ÇH.MAKİNA BAKIM MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇH.MAKİNA BAKIM ŞEFLİĞİ", Value = " ÇH.MAKİNA BAKIM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Çubuk Haddehanesi HH.MAKİNA BAKIM ŞEFLİĞİ", Value = " Çubuk Haddehanesi HH.MAKİNA BAKIM ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇUBUK HADDEHANESİ İŞLETME MÜDÜR YARDIMCISI ", Value = " ÇUBUK HADDEHANESİ İŞLETME MÜDÜR YARDIMCISI" });
+                            listAltBolum.Add(new SelectListItem { Text = "ÇUBUK HADDEHANESİ İŞLETME MÜDÜRÜ ", Value = " ÇUBUK HADDEHANESİ İŞLETME MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Çubuk Haddehanesi İŞLETME ŞEFLİĞİ", Value = " Çubuk Haddehanesi İŞLETME ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Çubuk Haddehanesi MERDANE ATÖLYE ŞEFLİĞİ", Value = " Çubuk Haddehanesi MERDANE ATÖLYE ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "DANIŞMAN ", Value = " DANIŞMAN" });
+                            listAltBolum.Add(new SelectListItem { Text = "Diler Liman Müdürlüğü", Value = " Diler Liman Müdürlüğü " });
+                            listAltBolum.Add(new SelectListItem { Text = "DİYETİSYEN", Value = " DİYETİSYEN" });
+                            listAltBolum.Add(new SelectListItem { Text = "DNA TESİSİ İŞLETME MÜDÜRLÜĞÜ ", Value = " DNA TESİSİ İŞLETME MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "DÖKÜM ŞEFLİĞİ", Value = " DÖKÜM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "EĞT.VE SOSYAL HİZM.ŞEFLİĞİ", Value = " EĞT.VE SOSYAL HİZM.ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ELEKTRİK BAKIM MÜDÜRÜ", Value = " ELEKTRİK BAKIM MÜDÜRÜ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ELEKTRİK BAKIM ŞEFLİĞİ ", Value = " ELEKTRİK BAKIM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ELEKTRİK YATIRIM PLANLAMA MÜDÜRÜ ", Value = " ELEKTRİK YATIRIM PLANLAMA MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ENDÜSTRİ MH.BÖLÜM ŞEFLİĞİ", Value = " ENDÜSTRİ MH.BÖLÜM ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ENDÜSTRİ MÜHENDİSLİĞİ ELEMANI", Value = " ENDÜSTRİ MÜHENDİSLİĞİ ELEMANI " });
+                            listAltBolum.Add(new SelectListItem { Text = "FABRİKA MÜDÜRÜ", Value = " FABRİKA MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "FİLMAŞİN HADD.ELEKTRİK BAKIM MÜDÜRLÜĞÜ ", Value = " FİLMAŞİN HADD.ELEKTRİK BAKIM MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "GENEL İDARE MÜDÜRÜ ", Value = " GENEL İDARE MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "GENEL VARDİYA AMİRİ", Value = " GENEL VARDİYA AMİRİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "GÜVENLİK GÖREVLİLİĞİ", Value = " GÜVENLİK GÖREVLİLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "HADDEHANE KALİTE KONTROL ", Value = " HADDEHANE KALİTE KONTROL" });
+                            listAltBolum.Add(new SelectListItem { Text = "HH.ELEKTRİK BAKIM ŞEFLİĞİ", Value = " HH.ELEKTRİK BAKIM ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "HURDA ALIM TAKİP EKSPERİ ", Value = " HURDA ALIM TAKİP EKSPERİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "HURDA HAZIRLAMA", Value = " HURDA HAZIRLAMA " });
+                            listAltBolum.Add(new SelectListItem { Text = "ISIL İŞLEM FIRINLARI ŞEFLİĞİ ", Value = " ISIL İŞLEM FIRINLARI ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İDARİ İŞLER AMİRLİĞİ", Value = " İDARİ İŞLER AMİRLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İnşaat ve Montaj Müdürlüğü ATÖLYE ŞEFLİĞİ", Value = " İnşaat ve Montaj Müdürlüğü ATÖLYE ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ MÜDÜRÜ", Value = " İNŞAAT ve MONTAJ MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ ŞEFLİĞİ ", Value = " İNŞAAT ve MONTAJ ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İş Güvenliği Bölümü", Value = " İş Güvenliği Bölümü" });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ MÜDÜRLÜĞÜ ", Value = " İŞ GÜVENLİĞİ MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ MÜDÜRÜ", Value = " İŞ GÜVENLİĞİ MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ ŞEFLİĞİ", Value = " İŞ GÜVENLİĞİ ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ VE ÇEVRE ŞEFİ", Value = " İŞ GÜVENLİĞİ VE ÇEVRE ŞEFİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ VE ÇEVRE ŞEFLİĞİ", Value = " İŞ GÜVENLİĞİ VE ÇEVRE ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "İŞYERİ HEKİMLİĞİ ", Value = " İŞYERİ HEKİMLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "İZABE ŞEFLİĞİ", Value = " İZABE ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE GÜVENCE MÜDÜRÜ", Value = " KALİTE GÜVENCE MÜDÜRÜ " });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE DÖKÜMANTASYON", Value = " KALİTE DÖKÜMANTASYON" });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE GÜVENCE ŞEFLİĞİ ", Value = " KALİTE GÜVENCE ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE GÜVENCE ŞEFLİĞİ - CHKK", Value = " KALİTE GÜVENCE ŞEFLİĞİ - CHKK " });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE GÜVENCE ŞEFLİĞİ - KÜTÜK PAKETLEME", Value = " KALİTE GÜVENCE ŞEFLİĞİ - KÜTÜK PAKETLEME" });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE KONTROL MÜDÜRLÜĞÜ ", Value = " KALİTE KONTROL MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "KALİTE KONTROL MÜDÜRÜ", Value = " KALİTE KONTROL MÜDÜRÜ " });
+                            listAltBolum.Add(new SelectListItem { Text = "KONSTRÜKTÖR RESSAM ", Value = " KONSTRÜKTÖR RESSAM" });
+                            listAltBolum.Add(new SelectListItem { Text = "KONTROL ŞEFLİĞİ", Value = " KONTROL ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "Liman ve Lojistik Müdürü ", Value = " Liman ve Lojistik Müdürü" });
+                            listAltBolum.Add(new SelectListItem { Text = "MAKİNA MÜHENDİSLİĞİ", Value = " MAKİNA MÜHENDİSLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "MEYDANCILIK", Value = " MEYDANCILIK " });
+                            listAltBolum.Add(new SelectListItem { Text = "MUHASEBE ŞEFLİĞİ ", Value = " MUHASEBE ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "MÜHENDİS ", Value = " MÜHENDİS" });
+                            listAltBolum.Add(new SelectListItem { Text = "Nakliyat Bakım Ünitesi ", Value = " Nakliyat Bakım Ünitesi" });
+                            listAltBolum.Add(new SelectListItem { Text = "NAKLİYAT MÜDÜRÜ", Value = " NAKLİYAT MÜDÜRÜ " });
+                            listAltBolum.Add(new SelectListItem { Text = "Operasyon Şefi", Value = " Operasyon Şefi" });
+                            listAltBolum.Add(new SelectListItem { Text = "OPERASYON ŞEFLİĞİ", Value = " OPERASYON ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ORGANİZASYON ŞEFLİĞİ", Value = " ORGANİZASYON ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "ÖN MUHASEBE", Value = " ÖN MUHASEBE " });
+                            listAltBolum.Add(new SelectListItem { Text = "PERSONEL ŞEFLİĞİ ", Value = " PERSONEL ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "PROJE MÜDÜRÜ ", Value = " PROJE MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "REFRAKTER ŞEFLİĞİ", Value = " REFRAKTER ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "SATIN ALMA MÜDÜRÜ", Value = " SATIN ALMA MÜDÜRÜ " });
+                            listAltBolum.Add(new SelectListItem { Text = "SATIN ALMA ŞEFLİĞİ ", Value = " SATIN ALMA ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "SEKRETER ", Value = " SEKRETER" });
+                            listAltBolum.Add(new SelectListItem { Text = "SEVKİYAT ŞEFLİĞİ ", Value = " SEVKİYAT ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TAŞERON FIRMA", Value = " TAŞERON FIRMA" });
+                            listAltBolum.Add(new SelectListItem { Text = "TAŞIMA GRUBU VARD. AMİRLİĞİ", Value = " TAŞIMA GRUBU VARD. AMİRLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Teknoloji Otomasyon Müdürü", Value = " Teknoloji Otomasyon Müdürü" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ AMBAR ŞEFLİĞİ", Value = " TEL ÇUBUK HADDEHANESİ AMBAR ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ EĞT.VE SOSYAL HİZM.ŞEFLİĞİ", Value = " TEL ÇUBUK HADDEHANESİ EĞT.VE SOSYAL HİZM.ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRLÜĞÜ ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRÜ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM ŞEFLİĞİ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ İŞLETME ŞEFLİĞİ", Value = " TEL ÇUBUK HADDEHANESİ İŞLETME ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ K_GÜVENCE ŞEFLİĞİ", Value = " TEL ÇUBUK HADDEHANESİ K_GÜVENCE ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜDÜRLÜĞÜ", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜDÜRLÜĞÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM ŞEFLİĞİ ", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MÜDÜRÜ ", Value = " TEL ÇUBUK HADDEHANESİ MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ YARDIMCI TESİSLER MÜDÜRÜ ", Value = " TEL ÇUBUK HADDEHANESİ YARDIMCI TESİSLER MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HH. ELEKTRONİK BAK. VE OTOMASYON ŞEFL.", Value = " TEL ÇUBUK HH. ELEKTRONİK BAK. VE OTOMASYON ŞEFL." });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL VE SEVKİYAT ŞEFLİĞİ", Value = " TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL VE SEVKİYAT ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK HH.ÜRETİM PLANLAMA VE KALİTE KONTROL ŞEFLİĞİ", Value = " TEL ÇUBUK HH.ÜRETİM PLANLAMA VE KALİTE KONTROL ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "TEL ÇUBUK YARDIMCI TESİSLER ŞEFLİĞİ", Value = " TEL ÇUBUK YARDIMCI TESİSLER ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MD. ", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MD." });
+                            listAltBolum.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM ŞEFLİĞİ ", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM ŞEFLİĞİ" });
+                            listAltBolum.Add(new SelectListItem { Text = "YARDIMCI İŞLETMELER MÜDÜRÜ", Value = " YARDIMCI İŞLETMELER MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "YARDIMCI TESİSLER ŞEFLİĞİ", Value = " YARDIMCI TESİSLER ŞEFLİĞİ " });
+                            listAltBolum.Add(new SelectListItem { Text = "YATIRIM MÜDÜRÜ", Value = " YATIRIM MÜDÜRÜ" });
+                            listAltBolum.Add(new SelectListItem { Text = "Yatırım Planlama Müdürlüğü", Value = " Yatırım Planlama Müdürlüğü" });
+                            listAltBolum.Add(new SelectListItem { Text = "Yatırım Planlama Şefliği ", Value = " Yatırım Planlama Şefliği" });
+                            listAltBolum.Add(new SelectListItem { Text = "Yatırım - Planlama Müdürlüğü ", Value = " Yatırım - Planlama Müdürlüğü" });
+
+                        }
+                        @Html.DropDownListFor(model => model.PERSONEL_ALT_BOLUM, listAltBolum, "Alt Bölüm", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PERSONEL_ALT_BOLUM, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPozisyon = new List<SelectListItem>();
+                            listPozisyon.Add(new SelectListItem { Text = "ALIŞVERİŞ SORUMLUSU", Value = " ALIŞVERİŞ SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "AMBAR ŞEFİ", Value = " AMBAR ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "AMBARCILIK", Value = " AMBARCILIK" });
+                            listPozisyon.Add(new SelectListItem { Text = "ANTREPO SORUMLUSU", Value = " ANTREPO SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "ARK OCAĞI FORMENİ", Value = " ARK OCAĞI FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ARŞİV GÖREVLİSİ", Value = " ARŞİV GÖREVLİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ASİT GERİ DÖNÜŞÜM / BUHAR KAZANI İŞÇİSİ", Value = " ASİT GERİ DÖNÜŞÜM / BUHAR KAZANI İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ATÖLYE FORMENİ ", Value = " ATÖLYE FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ATÖLYE ŞEFİ", Value = " ATÖLYE ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "AYDOĞDU", Value = " AYDOĞDU" });
+                            listPozisyon.Add(new SelectListItem { Text = "BAKIM ŞEFİ", Value = " BAKIM ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "BAKIMCI", Value = " BAKIMCI" });
+                            listPozisyon.Add(new SelectListItem { Text = "BAŞ OPERATÖR ", Value = " BAŞ OPERATÖR " });
+                            listPozisyon.Add(new SelectListItem { Text = "BETON DEMET OPERATÖRÜ", Value = " BETON DEMET OPERATÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "BİLGİ - İŞLEM ELEMANI", Value = " BİLGİ - İŞLEM ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "BİLGİ İŞLEM ELEMANI", Value = " BİLGİ İŞLEM ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "BİLGİ İŞLEM MÜHENDİSİ", Value = " BİLGİ İŞLEM MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "BİLGİ TEKNOLOJİLERİ MÜDÜRÜ", Value = " BİLGİ TEKNOLOJİLERİ MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "BİLGİSAYAR OPERATÖRÜ ", Value = " BİLGİSAYAR OPERATÖRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "BÜRO ELEMANI ", Value = " BÜRO ELEMANI " });
+                            listPozisyon.Add(new SelectListItem { Text = "BÜRO İŞÇİSİ", Value = " BÜRO İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "CAT OPERATÖRÜ", Value = " CAT OPERATÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "COŞAR", Value = " COŞAR" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇELİKHANE MÜDÜRÜ", Value = " ÇELİKHANE MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇEVRE İŞÇİSİ ", Value = " ÇEVRE İŞÇİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇEVRE MÜHENDİSİ", Value = " ÇEVRE MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.ELK.BAK.FORMENİ ", Value = " ÇH.ELK.BAK.FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.ELK.BAK.ŞEFİ", Value = " ÇH.ELK.BAK.ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.ELK.BAK.GN.FORMENİ", Value = " ÇH.ELK.BAK.GN.FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.İŞLETME ELEKTRİKCİLİĞİ -B ", Value = " ÇH.İŞLETME ELEKTRİKCİLİĞİ -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.İŞLETME ELEKTRİKCİLİĞİ -C ", Value = " ÇH.İŞLETME ELEKTRİKCİLİĞİ -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.İŞLETME ELEKTRİKCİLİĞİ -D ", Value = " ÇH.İŞLETME ELEKTRİKCİLİĞİ -D " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.KALİTE KONTROL MÜHENDİSİ", Value = " ÇH.KALİTE KONTROL MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAKİNA BAKIM MÜDÜRÜ", Value = " ÇH.MAKİNA BAKIM MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAKİNA BAKIM MÜHENDİSİ", Value = " ÇH.MAKİNA BAKIM MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAKİNA BAKIM ŞEFİ ", Value = " ÇH.MAKİNA BAKIM ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MEKANİK BAKIM FORMENİ ", Value = " ÇH.MEKANİK BAKIM FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAK.BAK.GENEL FORMENİ ", Value = " ÇH.MAK.BAK.GENEL FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAK.BAK.HİD.PNM.YED.HAZ.FORMENİ ", Value = " ÇH.MAK.BAK.HİD.PNM.YED.HAZ.FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAK.BAK.TOZ TUT.SDM.MEK.YED.HAZ.FORMENİ ", Value = " ÇH.MAK.BAK.TOZ TUT.SDM.MEK.YED.HAZ.FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAK.BAK.VARDİYA FORMENİ", Value = " ÇH.MAK.BAK.VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇH.MAK.BAK.VİNÇ BAK.MEK.YED.HAZ.FORMENİ", Value = " ÇH.MAK.BAK.VİNÇ BAK.MEK.YED.HAZ.FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇUBUK HADDEHANESİ İŞLETME MÜDÜR YARDIMCISI ", Value = " ÇUBUK HADDEHANESİ İŞLETME MÜDÜR YARDIMCISI " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÇUBUK HADDEHANESİ İŞLETME MÜDÜRÜ ", Value = " ÇUBUK HADDEHANESİ İŞLETME MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "DANIŞMAN ", Value = " DANIŞMAN " });
+                            listPozisyon.Add(new SelectListItem { Text = "DENİZ SUYU ARITMA", Value = " DENİZ SUYU ARITMA" });
+                            listPozisyon.Add(new SelectListItem { Text = "DENİZ SUYU ARITMA FORMENİ", Value = " DENİZ SUYU ARITMA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "DENİZ VE KUYU SUYU ARITMA İŞÇİLİĞİ ", Value = " DENİZ VE KUYU SUYU ARITMA İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "DEPO SORUMLUSU ", Value = " DEPO SORUMLUSU " });
+                            listPozisyon.Add(new SelectListItem { Text = "DİLER LİMAN MÜDÜRÜ ", Value = " DİLER LİMAN MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "DİLER LİMAN MÜDÜRÜ V.", Value = " DİLER LİMAN MÜDÜRÜ V." });
+                            listPozisyon.Add(new SelectListItem { Text = "DİYETİSYEN", Value = " DİYETİSYEN" });
+                            listPozisyon.Add(new SelectListItem { Text = "DNA KALİTE KONTROL MÜDÜRÜ", Value = " DNA KALİTE KONTROL MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "DNA TESİSİ İŞLETME MÜDÜRÜ", Value = " DNA TESİSİ İŞLETME MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "DONANIM VE NETWORK UZMANI", Value = " DONANIM VE NETWORK UZMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "DÖKÜM VİNÇ OPERATÖRÜ ", Value = " DÖKÜM VİNÇ OPERATÖRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "EĞİTİM VE SOSYAL HİZM. MEMURU", Value = " EĞİTİM VE SOSYAL HİZM. MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "EĞT.VE SOSYAL HİZM.ŞEFİ", Value = " EĞT.VE SOSYAL HİZM.ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIM FORMENİ", Value = " ELEKTRİK BAKIM FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIM İŞÇİSİ", Value = " ELEKTRİK BAKIM İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIM MÜDÜRÜ", Value = " ELEKTRİK BAKIM MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIM MÜHENDİSİ ", Value = " ELEKTRİK BAKIM MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIM ŞEFİ", Value = " ELEKTRİK BAKIM ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIMCI", Value = " ELEKTRİK BAKIMCI" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK BAKIMCILIK -B", Value = " ELEKTRİK BAKIMCILIK -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "ELEKTRİK YATIRIM PLANLAMA MÜDÜRÜ ", Value = " ELEKTRİK YATIRIM PLANLAMA MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ENDÜSTRİ MH. BÖLÜM MH.", Value = " ENDÜSTRİ MH. BÖLÜM MH." });
+                            listPozisyon.Add(new SelectListItem { Text = "ENDÜSTRİ MH. BÖLÜM MÜHENDİSİ ", Value = " ENDÜSTRİ MH. BÖLÜM MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ENDÜSTRİ MÜHENDİSLİĞİ ELEMANI", Value = " ENDÜSTRİ MÜHENDİSLİĞİ ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "FABRİKA MÜDÜRÜ ", Value = " FABRİKA MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "FİZİK LABORATUVAR SORUMLUSU", Value = " FİZİK LABORATUVAR SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "FORKLİFT OPERATÖRÜ ", Value = " FORKLİFT OPERATÖRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "FORKLİFT OPR.", Value = " FORKLİFT OPR." });
+                            listPozisyon.Add(new SelectListItem { Text = "GAZ TESİSLERİ FORMENİ", Value = " GAZ TESİSLERİ FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "GENEL FORMEN ", Value = " GENEL FORMEN " });
+                            listPozisyon.Add(new SelectListItem { Text = "GENEL FORMENİ", Value = " GENEL FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "GENEL İDARE MÜDÜRÜ ", Value = " GENEL İDARE MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "GENEL VARDİYA AMİRİ", Value = " GENEL VARDİYA AMİRİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "GERİ KAZANIM İŞÇİSİ", Value = " GERİ KAZANIM İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "GIDA SORUMLUSU ", Value = " GIDA SORUMLUSU " });
+                            listPozisyon.Add(new SelectListItem { Text = "GÜVENLİK AMİRİ ", Value = " GÜVENLİK AMİRİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "GÜVENLİK GÖREVLİSİ ", Value = " GÜVENLİK GÖREVLİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "GÜVENLİK VE KANTAR MEMURU", Value = " GÜVENLİK VE KANTAR MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE AYAR FORMENİ ", Value = " HADDE AYAR FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE AYAR İŞÇİLİĞİ -A", Value = " HADDE AYAR İŞÇİLİĞİ -A" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE AYAR İŞÇİLİĞİ - B", Value = " HADDE AYAR İŞÇİLİĞİ - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE İŞÇİLİĞİ -A", Value = " HADDE İŞÇİLİĞİ -A" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE İŞÇİLİĞİ -B", Value = " HADDE İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE İŞÇİLİĞİ -C", Value = " HADDE İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE İŞÇİLİĞİ -C", Value = " HADDE İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDE KUMANDA OPERATÖRLÜĞÜ - B", Value = " HADDE KUMANDA OPERATÖRLÜĞÜ - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "HADDEHANE VARDİYAAMİRİ ", Value = " HADDEHANE VARDİYAAMİRİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HAMMADDE GİRİŞ KONTROL FORMENİ", Value = " HAMMADDE GİRİŞ KONTROL FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HAMMADDE HAZIRLAMA MÜHENDİSİ ", Value = " HAMMADDE HAZIRLAMA MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.ELK.BAK.FORMENİ ", Value = " HH.ELK.BAK.FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.ELK.BAK.ŞEFİ", Value = " HH.ELK.BAK.ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.İŞLETME ELEKTRİKCİLİĞİ -B ", Value = " HH.İŞLETME ELEKTRİKCİLİĞİ -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.İŞLETME ELEKTRİKCİLİĞİ -C ", Value = " HH.İŞLETME ELEKTRİKCİLİĞİ -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.İŞLETME ELEKTRİKCİLİĞİ -D ", Value = " HH.İŞLETME ELEKTRİKCİLİĞİ -D " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.KALİTE KONTROL MÜHENDİSİ", Value = " HH.KALİTE KONTROL MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.KALİTE KONTROL ŞEFİ", Value = " HH.KALİTE KONTROL ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.KESME VE TRANSFER OPERATÖRLÜĞÜ", Value = " HH.KESME VE TRANSFER OPERATÖRLÜĞÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.MAK.BAK.MÜHENDİSİ ", Value = " HH.MAK.BAK.MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.MAK.BAK.FORMENİ ", Value = " HH.MAK.BAK.FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "HH.MAK.BAK.ŞEFİ", Value = " HH.MAK.BAK.ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "HI - UP OPERATÖRÜ", Value = " HI - UP OPERATÖRÜ" });
+
+                            listPozisyon.Add(new SelectListItem { Text = "HURDA ALIM TAKİP EKSPERİ", Value = "HURDA ALIM TAKİP EKSPERİ" });
+                          
+                            listPozisyon.Add(new SelectListItem { Text = "HURDA VE HAMMADDE HAZIRLAMA FORMENİ", Value = "HURDA VE HAMMADDE HAZIRLAMA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ISIL İŞLEM FIRINLARI ŞEFİ", Value = " ISIL İŞLEM FIRINLARI ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT TEKNİKERİ", Value = " İNŞAAT TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ FORMENİ ", Value = " İNŞAAT ve MONTAJ FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ İŞÇİSİ", Value = " İNŞAAT ve MONTAJ İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ MÜDÜRÜ", Value = " İNŞAAT ve MONTAJ MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ MÜHENDİSİ", Value = " İNŞAAT ve MONTAJ MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İNŞAAT ve MONTAJ ŞEFİ", Value = " İNŞAAT ve MONTAJ ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İSG Uzmani", Value = " İSG Uzmani" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ ELEMANI ", Value = " İŞ GÜVENLİĞİ ELEMANI " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ MÜDÜRÜ", Value = " İŞ GÜVENLİĞİ MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ MÜHENDİSİ", Value = " İŞ GÜVENLİĞİ MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ TEKNİKERİ", Value = " İŞ GÜVENLİĞİ TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ UZMANI", Value = " İŞ GÜVENLİĞİ UZMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ VE ÇEVRE MÜHENDİSİ", Value = " İŞ GÜVENLİĞİ VE ÇEVRE MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ GÜVENLİĞİ VE ÇEVRE TEKNİKERİ", Value = " İŞ GÜVENLİĞİ VE ÇEVRE TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPERASYON VE BAKIM SORUMLUSU", Value = " İŞ MAKİNASI OPERASYON VE BAKIM SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPERATÖRLÜĞÜ -A", Value = " İŞ MAKİNASI OPERATÖRLÜĞÜ -A" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPERATÖRLÜĞÜ - B ", Value = " İŞ MAKİNASI OPERATÖRLÜĞÜ - B " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPERATÖRLÜĞÜ - C ", Value = " İŞ MAKİNASI OPERATÖRLÜĞÜ - C " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPR. (A) ", Value = " İŞ MAKİNASI OPR. (A) " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPR. (B) ", Value = " İŞ MAKİNASI OPR. (B) " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞ MAKİNASI OPR. (C) ", Value = " İŞ MAKİNASI OPR. (C) " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞLETME ELEKTRİKCİLİĞİ -D", Value = " İŞLETME ELEKTRİKCİLİĞİ -D" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞLETME ELEKTRİKCİLİĞİ(D )", Value = " İŞLETME ELEKTRİKCİLİĞİ(D )" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞLETME FORMENİ", Value = " İŞLETME FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞLETME MÜHENDİSİ", Value = " İŞLETME MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞLETME ŞEFİ ", Value = " İŞLETME ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞYERİ HEKİMİ", Value = " İŞYERİ HEKİMİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞYERİ HEKİMLİĞİ ŞEFİ", Value = " İŞYERİ HEKİMLİĞİ ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İŞYERİ HEMŞİRESİ", Value = " İŞYERİ HEMŞİRESİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABE MÜHENDİSİ", Value = " İZABE MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABE ŞEFİ", Value = " İZABE ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABE YARDIMCI İŞÇİLİĞİ", Value = " İZABE YARDIMCI İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABECİLİK - B ", Value = " İZABECİLİK - B " });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABECİLİK - C ", Value = " İZABECİLİK - C " });
+                            listPozisyon.Add(new SelectListItem { Text = "İZABECİLİK - D ", Value = " İZABECİLİK - D " });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE DÖKÜMANTASYON ELEMANI ", Value = " KALİTE DÖKÜMANTASYON ELEMANI " });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE DÖKÜMANTASYON MÜHENDİSİ", Value = " KALİTE DÖKÜMANTASYON MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE DÖKÜMANTASYON VE KALİBRASYON PERSONELİ", Value = " KALİTE DÖKÜMANTASYON VE KALİBRASYON PERSONELİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE GÜVENCE MÜDÜRÜ", Value = " KALİTE GÜVENCE MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROL FORMENİ", Value = " KALİTE KONTROL FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROL İŞÇİSİ", Value = " KALİTE KONTROL İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROLCÜLÜK -B", Value = " KALİTE KONTROLCÜLÜK -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROLCÜLÜK -C", Value = " KALİTE KONTROLCÜLÜK -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROLCÜLÜK B", Value = " KALİTE KONTROLCÜLÜK B" });
+                            listPozisyon.Add(new SelectListItem { Text = "KALİTE KONTROLCÜLÜK C", Value = " KALİTE KONTROLCÜLÜK C" });
+                            listPozisyon.Add(new SelectListItem { Text = "KAMYON ŞOFÖRÜ", Value = " KAMYON ŞOFÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KAYNAKCILIK", Value = " KAYNAKCILIK" });
+                            listPozisyon.Add(new SelectListItem { Text = "KAYNAKÇILIK(B) ", Value = " KAYNAKÇILIK(B) " });
+                            listPozisyon.Add(new SelectListItem { Text = "KOK TESISI FORMENI ", Value = " KOK TESISI FORMENI " });
+                            listPozisyon.Add(new SelectListItem { Text = "KONSTRÜKTÖR RESSAM ", Value = " KONSTRÜKTÖR RESSAM " });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜM FORMEN YARDIMCISI", Value = " KONTİNÜ DÖKÜM FORMEN YARDIMCISI" });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜM FORMENİ", Value = " KONTİNÜ DÖKÜM FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜM ŞEFİ ", Value = " KONTİNÜ DÖKÜM ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜMCÜLÜK - C", Value = " KONTİNÜ DÖKÜMCÜLÜK - C" });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜMCÜLÜK -D", Value = " KONTİNÜ DÖKÜMCÜLÜK -D" });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTİNÜ DÖKÜMCÜLÜK -E", Value = " KONTİNÜ DÖKÜMCÜLÜK -E" });
+                            listPozisyon.Add(new SelectListItem { Text = "KONTROL MÜHENDİSİ", Value = " KONTROL MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KÖMÜR AYIKLAMA İŞÇİLİĞİ", Value = " KÖMÜR AYIKLAMA İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "KURYE ŞOFÖR", Value = " KURYE ŞOFÖR" });
+                            listPozisyon.Add(new SelectListItem { Text = "KUYU VE BAHÇE SORUMLUSU", Value = " KUYU VE BAHÇE SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "KÜTÜK PAKETLEME İŞÇİLİĞİ ", Value = " KÜTÜK PAKETLEME İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "LABARATUVAR İŞÇİLİĞİ -C", Value = " LABARATUVAR İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "LABORATUVAR İŞÇİLİĞİ -B", Value = " LABORATUVAR İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "LABORATUVAR İŞÇİLİĞİ -C", Value = " LABORATUVAR İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "LABORATUVAR TEKNİSYENİ", Value = " LABORATUVAR TEKNİSYENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "LASTİKÇİ ", Value = " LASTİKÇİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "LİMAN GÜVENLİK AMİRİ ", Value = " LİMAN GÜVENLİK AMİRİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "LİMAN GÜVENLİK GÖREVLİSİ ", Value = " LİMAN GÜVENLİK GÖREVLİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "Liman ve Lojistik Müdürü ", Value = " Liman ve Lojistik Müdürü " });
+                            listPozisyon.Add(new SelectListItem { Text = "MACİTLER ", Value = " MACİTLER " });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA BAKIM YARDIMCI İŞÇİLİĞİ", Value = " MAKİNA BAKIM YARDIMCI İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA BAKIMCILIK -B ", Value = " MAKİNA BAKIMCILIK -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA BAKIMCILIK -C ", Value = " MAKİNA BAKIMCILIK -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA BAKIMCILIK -D ", Value = " MAKİNA BAKIMCILIK -D " });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA BAKIMCILIK -E ", Value = " MAKİNA BAKIMCILIK -E " });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNA MÜHENDİSİ", Value = " MAKİNA MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MAKİNE MÜHENDİSİ", Value = " MAKİNE MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MALZEME TAKİP VE ORGANİZASYON PERSONELİ", Value = " MALZEME TAKİP VE ORGANİZASYON PERSONELİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MEKANİK BAKIM / YARDIMCI TESİSLER", Value = " MEKANİK BAKIM / YARDIMCI TESİSLER" });
+                            listPozisyon.Add(new SelectListItem { Text = "MEKANİK BAKIM FORMENİ", Value = " MEKANİK BAKIM FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MEKANİK BAKIM İŞÇİSİ ", Value = " MEKANİK BAKIM İŞÇİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "MERDANE ATOLYESİ FORMENİ ", Value = " MERDANE ATOLYESİ FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "MERDANE ATOLYESİ VARDİYA SORUMLUSU ", Value = " MERDANE ATOLYESİ VARDİYA SORUMLUSU " });
+                            listPozisyon.Add(new SelectListItem { Text = "MERDANE VE YOLLUK HAZIRLAMAİŞÇİLİĞİ", Value = " MERDANE VE YOLLUK HAZIRLAMAİŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MERDANE VE YOLLUK HAZIRL.İŞÇİLİĞİ", Value = " MERDANE VE YOLLUK HAZIRL.İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MEYDANCILIK", Value = " MEYDANCILIK" });
+                            listPozisyon.Add(new SelectListItem { Text = "MİKROYAPI LABARATUAR TEKNİKERİ", Value = " MİKROYAPI LABARATUAR TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MİKROYAPI LABORATUVAR TEKNİKERİ", Value = " MİKROYAPI LABORATUVAR TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - A", Value = " MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - A" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - B", Value = " MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - C", Value = " MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - C" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - D", Value = " MOTORLU ARAÇLAR BAKIM VE ONARIMCILIĞI - D" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR ELEKTRİKCİLİĞİ(A)", Value = " MOTORLU ARAÇLAR ELEKTRİKCİLİĞİ(A)" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR ELEKTRİKCİLİĞİ(B)", Value = " MOTORLU ARAÇLAR ELEKTRİKCİLİĞİ(B)" });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR LASTİKCİLİĞİ ", Value = " MOTORLU ARAÇLAR LASTİKCİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "MOTORLU ARAÇLAR YAĞLAMA İŞÇİLİĞİ ", Value = " MOTORLU ARAÇLAR YAĞLAMA İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "MUHASEBE MEMURU", Value = " MUHASEBE MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "MUHASEBE ŞEFİ", Value = " MUHASEBE ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "MÜHENDİS ", Value = " MÜHENDİS " });
+                            listPozisyon.Add(new SelectListItem { Text = "NAKLİYAT MÜDÜR YARDIMCISI", Value = " NAKLİYAT MÜDÜR YARDIMCISI" });
+                            listPozisyon.Add(new SelectListItem { Text = "NAKLİYAT MÜDÜRÜ", Value = " NAKLİYAT MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "OKSİJEN TESİSİ MÜHENDİSİ ", Value = " OKSİJEN TESİSİ MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "OKS / YARDIMCI TESİSLER İŞÇİLİĞİ -B", Value = " OKS / YARDIMCI TESİSLER İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "OKS / YARDIMCI TESİSLER İŞÇİLİĞİ -C", Value = " OKS / YARDIMCI TESİSLER İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "OPERASYON ŞEFİ ", Value = " OPERASYON ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÖN MUHASEBE", Value = " ÖN MUHASEBE" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÖRME OPERATÖRÜ ", Value = " ÖRME OPERATÖRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "PAKETLEME İŞÇİLİĞİ ", Value = " PAKETLEME İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "PAKETLEME MAK. OPERATÖRÜ ", Value = " PAKETLEME MAK. OPERATÖRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "PERSONEL ELEMANI", Value = " PERSONEL ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "PERSONEL MEMURU", Value = " PERSONEL MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "PERSONEL ŞEFİ", Value = " PERSONEL ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "PLANYACILIK(B) ", Value = " PLANYACILIK(B) " });
+                            listPozisyon.Add(new SelectListItem { Text = "POTA OCAĞI / İZABE FORMEN YARDIMCISI", Value = " POTA OCAĞI / İZABE FORMEN YARDIMCISI" });
+                            listPozisyon.Add(new SelectListItem { Text = "PROJE MÜDÜRÜ ", Value = " PROJE MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "PROSES KONTROL MÜHENDİSİ ", Value = " PROSES KONTROL MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "REFRAKTER FORMENİ", Value = " REFRAKTER FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "REFRAKTER İŞÇİLİĞİ ", Value = " REFRAKTER İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "REFRAKTER ŞEFİ ", Value = " REFRAKTER ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "REFRAKTER TEKNİSYENİ ", Value = " REFRAKTER TEKNİSYENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "SAĞLIK MEMURU", Value = " SAĞLIK MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "SAHA PAKETLEME VARDİYA SORUMLUSU ", Value = " SAHA PAKETLEME VARDİYA SORUMLUSU " });
+                            listPozisyon.Add(new SelectListItem { Text = "SAHA PAKETLEME VE SEVK İŞÇİLİĞİ", Value = " SAHA PAKETLEME VE SEVK İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SANTRAL MEMURU ", Value = " SANTRAL MEMURU " });
+                            listPozisyon.Add(new SelectListItem { Text = "SAPANCILIK", Value = " SAPANCILIK" });
+                            listPozisyon.Add(new SelectListItem { Text = "SATIN ALMA MEMURU", Value = " SATIN ALMA MEMURU" });
+                            listPozisyon.Add(new SelectListItem { Text = "SATIN ALMA MÜDÜRÜ", Value = " SATIN ALMA MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SATIN ALMA ŞEFİ", Value = " SATIN ALMA ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SEKRETER ", Value = " SEKRETER " });
+                            listPozisyon.Add(new SelectListItem { Text = "SEVKİYAT İŞÇİLİĞİ", Value = " SEVKİYAT İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SEVKİYAT İŞÇİSİ", Value = " SEVKİYAT İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SEVKİYAT ŞEFİ", Value = " SEVKİYAT ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SINAİ FIRIN İŞÇİLİĞİ ", Value = " SINAİ FIRIN İŞÇİLİĞİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "SINAİ FIRIN İŞÇİLİĞİ - B ", Value = " SINAİ FIRIN İŞÇİLİĞİ - B " });
+                            listPozisyon.Add(new SelectListItem { Text = "SINAİ FIRIN İŞÇİLİĞİ - D ", Value = " SINAİ FIRIN İŞÇİLİĞİ - D " });
+                            listPozisyon.Add(new SelectListItem { Text = "SOĞUTMA PLATFORMU FORMENİ", Value = " SOĞUTMA PLATFORMU FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "STAJER MUHENDIS", Value = " STAJER MUHENDIS" });
+                            listPozisyon.Add(new SelectListItem { Text = "Stajyer Mühendis", Value = " Stajyer Mühendis" });
+                            listPozisyon.Add(new SelectListItem { Text = "SU ARITMA İŞÇİSİ", Value = " SU ARITMA İŞÇİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SU VE TOZ TUTMA TESİSLERİ FORMENİ", Value = " SU VE TOZ TUTMA TESİSLERİ FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SU VE TOZ TUTMA TESİSLERİ MÜHENDİSİ", Value = " SU VE TOZ TUTMA TESİSLERİ MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "SU / YARDIMCI TESİSLER İŞÇİLİĞİ -B ", Value = " SU / YARDIMCI TESİSLER İŞÇİLİĞİ -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "SU / YARDIMCI TESİSLER İŞÇİLİĞİ -C ", Value = " SU / YARDIMCI TESİSLER İŞÇİLİĞİ -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "ŞOFÖR", Value = " ŞOFÖR" });
+                            listPozisyon.Add(new SelectListItem { Text = "ŞOFÖRLÜK ", Value = " ŞOFÖRLÜK " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEKNİK RESSAM", Value = " TEKNİK RESSAM" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEKNİSYEN", Value = " TEKNİSYEN" });
+                            listPozisyon.Add(new SelectListItem { Text = "Teknoloji Otomasyon Müdürü", Value = " Teknoloji Otomasyon Müdürü" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇEKME OPERATÖRÜ", Value = " TEL ÇEKME OPERATÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK AMBARCILIK ", Value = " TEL ÇUBUK AMBARCILIK " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK ELEKTRİK BAKIM FORMENİ ", Value = " TEL ÇUBUK ELEKTRİK BAKIM FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK ELEKTRİK BAKIM MÜHENDİSİ ", Value = " TEL ÇUBUK ELEKTRİK BAKIM MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK ELEKTRİK BAKIM VARDİYA FORMENİ", Value = " TEL ÇUBUK ELEKTRİK BAKIM VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE AYAR İŞÇİLİĞİ A", Value = " TEL ÇUBUK HADDE AYAR İŞÇİLİĞİ A" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE AYAR İŞÇİLİĞİ B", Value = " TEL ÇUBUK HADDE AYAR İŞÇİLİĞİ B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE İŞÇİLİĞİ -A", Value = " TEL ÇUBUK HADDE İŞÇİLİĞİ -A" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE İŞÇİLİĞİ -B", Value = " TEL ÇUBUK HADDE İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE İŞÇİLİĞİ -C", Value = " TEL ÇUBUK HADDE İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE KUMANDA OPERATÖRLÜĞÜ - B", Value = " TEL ÇUBUK HADDE KUMANDA OPERATÖRLÜĞÜ - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDE VARDİYA FORMENİ", Value = " TEL ÇUBUK HADDE VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANE VARDİYA AMİRİ", Value = " TEL ÇUBUK HADDEHANE VARDİYA AMİRİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ AMBAR SORUMLUSU", Value = " TEL ÇUBUK HADDEHANESİ AMBAR SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ AMBARCILIK ", Value = " TEL ÇUBUK HADDEHANESİ AMBARCILIK " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ATÖLYE MÜHENDİSİ ", Value = " TEL ÇUBUK HADDEHANESİ ATÖLYE MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ BAKIMCI", Value = " TEL ÇUBUK HADDEHANESİ BAKIMCI" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM FORMENİ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRÜ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM VARDİYA FORMENİ ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIM VARDİYA FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIMCI ", Value = " TEL ÇUBUK HADDEHANESİ ELEKTRİK BAKIMCI " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ FORMEN ", Value = " TEL ÇUBUK HADDEHANESİ FORMEN " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ HADDE İŞÇİLİĞİ - A", Value = " TEL ÇUBUK HADDEHANESİ HADDE İŞÇİLİĞİ - A" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ HADDE İŞÇİLİĞİ - C", Value = " TEL ÇUBUK HADDEHANESİ HADDE İŞÇİLİĞİ - C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ HADDE KUMANDA OPERATÖRLÜĞÜ -B", Value = " TEL ÇUBUK HADDEHANESİ HADDE KUMANDA OPERATÖRLÜĞÜ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ HADDE VARDİYA FORMENİ", Value = " TEL ÇUBUK HADDEHANESİ HADDE VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ HADDEHANE VARDİYA AMİRİ", Value = " TEL ÇUBUK HADDEHANESİ HADDEHANE VARDİYA AMİRİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - B ", Value = " TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - B " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - C ", Value = " TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - C " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - E ", Value = " TEL ÇUBUK HADDEHANESİ İŞLETME ELEKTRİKCİLİĞİ - E " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ İŞLETME MÜHENDİSİ", Value = " TEL ÇUBUK HADDEHANESİ İŞLETME MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ KALİTE KONTROLCÜLÜK -B", Value = " TEL ÇUBUK HADDEHANESİ KALİTE KONTROLCÜLÜK -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKINA BAKIM FORMENİ ", Value = " TEL ÇUBUK HADDEHANESİ MAKINA BAKIM FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜDÜRÜ", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜHENDİSİ", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIM MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIMCILIK - B", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIMCILIK - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MAKİNA BAKIMCILIK - E", Value = " TEL ÇUBUK HADDEHANESİ MAKİNA BAKIMCILIK - E" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MERDANE ATÖLYE FORMENİ", Value = " TEL ÇUBUK HADDEHANESİ MERDANE ATÖLYE FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(TEZGAH) ", Value = " TEL ÇUBUK HADDEHANESİ MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(TEZGAH) " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(YOLLUK) ", Value = " TEL ÇUBUK HADDEHANESİ MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(YOLLUK) " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MEYDANCI", Value = " TEL ÇUBUK HADDEHANESİ MEYDANCI" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MÜDÜRÜ ", Value = " TEL ÇUBUK HADDEHANESİ MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ MÜHENDİS", Value = " TEL ÇUBUK HADDEHANESİ MÜHENDİS" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ PAKETLEME VARDİYA FORMENİ", Value = " TEL ÇUBUK HADDEHANESİ PAKETLEME VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ SINAİ FIRIN FORMENİ", Value = " TEL ÇUBUK HADDEHANESİ SINAİ FIRIN FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ SINAİ FIRIN İŞÇİLİĞİ -B", Value = " TEL ÇUBUK HADDEHANESİ SINAİ FIRIN İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ SINAİ FIRIN İŞÇİLİĞİ -C", Value = " TEL ÇUBUK HADDEHANESİ SINAİ FIRIN İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ TEKNİK RESSAM", Value = " TEL ÇUBUK HADDEHANESİ TEKNİK RESSAM" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ TEMİZLİKCİLİK", Value = " TEL ÇUBUK HADDEHANESİ TEMİZLİKCİLİK" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ TORNACILIK(B)", Value = " TEL ÇUBUK HADDEHANESİ TORNACILIK(B)" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HADDEHANESİ YARDIMCI TESİSLER MÜDÜRÜ ", Value = " TEL ÇUBUK HADDEHANESİ YARDIMCI TESİSLER MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HH.ELEKTRONİK BAK. VE OTOMASYON ŞEFİ ", Value = " TEL ÇUBUK HH.ELEKTRONİK BAK. VE OTOMASYON ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HH. HAMMADDE GİRİŞ KONTROL İŞÇİLİĞİ", Value = " TEL ÇUBUK HH. HAMMADDE GİRİŞ KONTROL İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL MÜHENDİSİ", Value = " TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL VE SEVKİYAT ŞEFİ ", Value = " TEL ÇUBUK HH.HAMMADDE GİRİŞ KONTROL VE SEVKİYAT ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK HH.ÜRETİM PLANLAMA VE KALİTE KONTROL ŞEFİ", Value = " TEL ÇUBUK HH.ÜRETİM PLANLAMA VE KALİTE KONTROL ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -B", Value = " TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -C", Value = " TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -D", Value = " TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -D" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -E", Value = " TEL ÇUBUK İŞLETME ELEKTRİKCİLİĞİ -E" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME MÜHENDİSİ", Value = " TEL ÇUBUK İŞLETME MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK İŞLETME ŞEFİ", Value = " TEL ÇUBUK İŞLETME ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK KALİTE KONTROLCÜLÜK -B ", Value = " TEL ÇUBUK KALİTE KONTROLCÜLÜK -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK KALİTE KONTROLCÜLÜK -C ", Value = " TEL ÇUBUK KALİTE KONTROLCÜLÜK -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKINA BAKIM FORMENİ", Value = " TEL ÇUBUK MAKINA BAKIM FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIM GENEL FORMENİ", Value = " TEL ÇUBUK MAKİNA BAKIM GENEL FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIM MÜHENDİSİ ", Value = " TEL ÇUBUK MAKİNA BAKIM MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIM ŞEFİ", Value = " TEL ÇUBUK MAKİNA BAKIM ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIMCILIK - B", Value = " TEL ÇUBUK MAKİNA BAKIMCILIK - B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIMCILIK -C", Value = " TEL ÇUBUK MAKİNA BAKIMCILIK -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIMCILIK -D", Value = " TEL ÇUBUK MAKİNA BAKIMCILIK -D" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MAKİNA BAKIMCILIK -E", Value = " TEL ÇUBUK MAKİNA BAKIMCILIK -E" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(TEZGAH) ", Value = " TEL ÇUBUK MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(TEZGAH) " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(YOLLUK) ", Value = " TEL ÇUBUK MERDANE VE YOLLUK HAZIRLAMA İŞÇİLİĞİ(YOLLUK) " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK MEYDANCI ", Value = " TEL ÇUBUK MEYDANCI " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK PAKETLEME VARDİYA FORMENİ", Value = " TEL ÇUBUK PAKETLEME VARDİYA FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK TEKNİK BÜRO ELEMANI", Value = " TEL ÇUBUK TEKNİK BÜRO ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK TEKNİK RESSAM", Value = " TEL ÇUBUK TEKNİK RESSAM" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK TEZGAH HAZIRLAMA FORMENİ ", Value = " TEL ÇUBUK TEZGAH HAZIRLAMA FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK TORNACILIK(B)", Value = " TEL ÇUBUK TORNACILIK(B)" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK TORNACILIK(C)", Value = " TEL ÇUBUK TORNACILIK(C)" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK VİNÇ OPR. B", Value = " TEL ÇUBUK VİNÇ OPR. B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK YARDIMCI TESİSLER FORMEN ", Value = " TEL ÇUBUK YARDIMCI TESİSLER FORMEN " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK YARDIMCI TESİSLER İŞÇİLİĞİ - E", Value = " TEL ÇUBUK YARDIMCI TESİSLER İŞÇİLİĞİ - E" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK YARDIMCI TESİSLER ŞEFİ ", Value = " TEL ÇUBUK YARDIMCI TESİSLER ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEL ÇUBUK YOLLUK HAZIRLAMA FORMENİ ", Value = " TEL ÇUBUK YOLLUK HAZIRLAMA FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TEMİZLİKCİLİK", Value = " TEMİZLİKCİLİK" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEMİZLİKÇİLİK", Value = " TEMİZLİKÇİLİK" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEMPCORE MONTAJ ve BAKIM İŞÇİLİĞİ", Value = " TEMPCORE MONTAJ ve BAKIM İŞÇİLİĞİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TESİS SORUMLUSU", Value = " TESİS SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "TEZGAH HAZIRLAMA FORMENİ ", Value = " TEZGAH HAZIRLAMA FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TIR ŞOFÖRÜ", Value = " TIR ŞOFÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TORNA TEKNİKERİ", Value = " TORNA TEKNİKERİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "TORNACILIK - B ", Value = " TORNACILIK - B " });
+                            listPozisyon.Add(new SelectListItem { Text = "TORNACILIK - C ", Value = " TORNACILIK - C " });
+                            listPozisyon.Add(new SelectListItem { Text = "TORNACILIK(B)", Value = " TORNACILIK(B)" });
+                            listPozisyon.Add(new SelectListItem { Text = "TORNACILIK(C)", Value = " TORNACILIK(C)" });
+                            listPozisyon.Add(new SelectListItem { Text = "TOZ / YARDIMCI TESİSLER İŞÇİLİĞİ -B", Value = " TOZ / YARDIMCI TESİSLER İŞÇİLİĞİ -B" });
+                            listPozisyon.Add(new SelectListItem { Text = "TOZ / YARDIMCI TESİSLER İŞÇİLİĞİ -C", Value = " TOZ / YARDIMCI TESİSLER İŞÇİLİĞİ -C" });
+                            listPozisyon.Add(new SelectListItem { Text = "TRAFO MERKEZİ İŞLETME TEKNİSYENİ ", Value = " TRAFO MERKEZİ İŞLETME TEKNİSYENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "TRANSPORTER OPERATÖRÜ", Value = " TRANSPORTER OPERATÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM FORMENİ ", Value = " ÜRETİM FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM MÜHENDİSİ", Value = " ÜRETİM MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MÜDÜRÜ", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MÜHENDİSİ ", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM MÜHENDİSİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM ŞEFİ", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME BÖLÜM ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME ELEMANI", Value = " ÜRETİM PLANLAMA VE SİSTEM GELİŞTİRME ELEMANI" });
+                            listPozisyon.Add(new SelectListItem { Text = "VARDİYA AMİRİ", Value = " VARDİYA AMİRİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "VARDİYA MÜHENDİSİ", Value = " VARDİYA MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "VERİ YÖNETİMİ", Value = " VERİ YÖNETİMİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "VEZNE MEMURU ", Value = " VEZNE MEMURU " });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ BAKIM FORMENİ ", Value = " VİNÇ BAKIM FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPERATÖRLÜĞÜ -A ", Value = " VİNÇ OPERATÖRLÜĞÜ -A " });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPERATÖRLÜĞÜ -B ", Value = " VİNÇ OPERATÖRLÜĞÜ -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPERATÖRLÜĞÜ -C ", Value = " VİNÇ OPERATÖRLÜĞÜ -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPERATÖRÜ B", Value = " VİNÇ OPERATÖRÜ B" });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPR.", Value = " VİNÇ OPR." });
+                            listPozisyon.Add(new SelectListItem { Text = "VİNÇ OPR. B", Value = " VİNÇ OPR. B" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI İŞLETMELER MÜDÜRÜ", Value = " YARDIMCI İŞLETMELER MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "Yardimci Tesisler Elektrik Bakim Formeni", Value = " Yardimci Tesisler Elektrik Bakim Formeni" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER FORMENİ", Value = " YARDIMCI TESİSLER FORMENİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER İŞÇİLİĞİ - C", Value = " YARDIMCI TESİSLER İŞÇİLİĞİ - C" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER İŞÇİLİĞİ(C)", Value = " YARDIMCI TESİSLER İŞÇİLİĞİ(C)" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER İŞÇİLİĞİ - D", Value = " YARDIMCI TESİSLER İŞÇİLİĞİ - D" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER İŞÇİLİĞİ - E", Value = " YARDIMCI TESİSLER İŞÇİLİĞİ - E" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER MUHENDİSİ", Value = " YARDIMCI TESİSLER MUHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER MÜHENDİSİ", Value = " YARDIMCI TESİSLER MÜHENDİSİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "YARDIMCI TESİSLER ŞEFİ", Value = " YARDIMCI TESİSLER ŞEFİ" });
+                            listPozisyon.Add(new SelectListItem { Text = "YATIRIM MÜDÜRÜ ", Value = " YATIRIM MÜDÜRÜ " });
+                            listPozisyon.Add(new SelectListItem { Text = "Yatirim Planlama Müdürü", Value = " Yatirim Planlama Müdürü" });
+                            listPozisyon.Add(new SelectListItem { Text = "Yatirim Planlama Şefi", Value = " Yatirim Planlama Şefi" });
+                            listPozisyon.Add(new SelectListItem { Text = "YATIRIM - PLANLAMA MÜDÜRÜ", Value = " YATIRIM - PLANLAMA MÜDÜRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "Yİ.İŞLETME ELEKTRİKCİLİĞİ -B ", Value = " Yİ.İŞLETME ELEKTRİKCİLİĞİ -B " });
+                            listPozisyon.Add(new SelectListItem { Text = "Yİ.İŞLETME ELEKTRİKCİLİĞİ -C ", Value = " Yİ.İŞLETME ELEKTRİKCİLİĞİ -C " });
+                            listPozisyon.Add(new SelectListItem { Text = "Yİ.İŞLETME ELEKTRİKCİLİĞİ -D ", Value = " Yİ.İŞLETME ELEKTRİKCİLİĞİ -D " });
+                            listPozisyon.Add(new SelectListItem { Text = "YOLLUK HAZIRLAMA FORMENİ ", Value = " YOLLUK HAZIRLAMA FORMENİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "YÜKLEME - İSTİFLEME ŞEFİ ", Value = " YÜKLEME - İSTİFLEME ŞEFİ " });
+                            listPozisyon.Add(new SelectListItem { Text = "YÜKLEME SORUMLUSU", Value = " YÜKLEME SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "YÜKLEME VARDİYA SORUMLUSU", Value = " YÜKLEME VARDİYA SORUMLUSU" });
+                            listPozisyon.Add(new SelectListItem { Text = "YÜZEY HAZIRLAMA OPERATÖRÜ", Value = " YÜZEY HAZIRLAMA OPERATÖRÜ" });
+                            listPozisyon.Add(new SelectListItem { Text = "YÜZEY HAZIRLAMA SORUMLUSU", Value = " YÜZEY HAZIRLAMA SORUMLUSU" });
+                        }
+
+                        @Html.DropDownListFor(model => model.PERSONEL_POZISYON, listPozisyon, "Pozisyon seciniz !", new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(model => model.PERSONEL_POZISYON, "", new { @class = "text-danger" })
+                    </div>
+
+                </div>
+            </div>
+            <div class="col-lg-2">
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listLokasyon = new List<SelectListItem>();
+                            listLokasyon.Add(new SelectListItem { Text = "Diler", Value = "Diler" });
+                            listLokasyon.Add(new SelectListItem { Text = "Filmaşin", Value = "Filmaşin" });
+                            listLokasyon.Add(new SelectListItem { Text = "DNA", Value = "DNA" });
+                            listLokasyon.Add(new SelectListItem { Text = "Resa", Value = "Resa" });
+                            listLokasyon.Add(new SelectListItem { Text = "Eti-Toprak Liman", Value = "Eti-Toprak Liman" });
+                            listLokasyon.Add(new SelectListItem { Text = "Antrepo", Value = "Antrepo" }); }
+                        @Html.DropDownListFor(model => model.ISYERI_LOKASYON, listLokasyon, "Lokasyon", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ISYERI_LOKASYON, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2">
+                <h4 style="text-align:center">PC</h4>
+                @*Bilgisayar Bilgileri*@
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPcDomain = new List<SelectListItem>();
+                            listPcDomain.Add(new SelectListItem { Text = "WORKGROUP", Value = "WORKGROUP" });
+                            listPcDomain.Add(new SelectListItem { Text = "DILERHLD.COM", Value = "DILERHLD.COM" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_DOMAIN_GRUBU, listPcDomain, "Domain !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_DOMAIN_GRUBU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPcMarka = new List<SelectListItem>();
+                            listPcMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                            listPcMarka.Add(new SelectListItem { Text = "LENOVO", Value = "LENOVO" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_MARKA, listPcMarka, "Marka !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_MARKA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Model" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_MODEL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Name" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_ADI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Ip Adresi" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_IP_ADRESI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_MAC_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Mac Adresi" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_MAC_ADRESI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPcOS = new List<SelectListItem>();
+                            listPcOS.Add(new SelectListItem { Text = "Windows 95", Value = "Windows 95" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows 98", Value = "Windows 98" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows XP", Value = "Windows XP" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows 7", Value = "Windows 7" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows 8", Value = "Windows 8" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows 8.1", Value = "Windows 8.1" });
+                            listPcOS.Add(new SelectListItem { Text = "Windows 10", Value = "Windows 10" }); }
+
+                        @Html.DropDownListFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, listPcOS, "İşletim Sistemi !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLETIM_SISTEMI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listRam = new List<SelectListItem>();
+                            listRam.Add(new SelectListItem { Text = "500 MB", Value = "500 MB" });
+                            listRam.Add(new SelectListItem { Text = "1 GB", Value = "1 GB" });
+                            listRam.Add(new SelectListItem { Text = "2 GB", Value = "2 GB" });
+                            listRam.Add(new SelectListItem { Text = "4 GB", Value = "4 GB" });
+                            listRam.Add(new SelectListItem { Text = "6 GB", Value = "6 GB" });
+                            listRam.Add(new SelectListItem { Text = "8 GB", Value = "8 GB" });
+                            listRam.Add(new SelectListItem { Text = "16 GB", Value = "16 GB" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_RAM, listRam, "Ram !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_RAM, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listCpu = new List<SelectListItem>();
+                            listCpu.Add(new SelectListItem { Text = "İntel Core i3", Value = "İntel Core i3" });
+                            listCpu.Add(new SelectListItem { Text = "İntel Core i5", Value = "İntel Core i5" });
+                            listCpu.Add(new SelectListItem { Text = "İntel Core i7", Value = "İntel Core i7" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_ISLEMCI, listCpu, "Cpu !", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_ISLEMCI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-SERI-NO" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_SERI_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPCTutanak = new List<SelectListItem>();
+
+                            listPCTutanak.Add(new SelectListItem { Text = "TUTULDU", Value = "TUTULDU" });
+                            listPCTutanak.Add(new SelectListItem { Text = "TUTULMADI", Value = "TUTULMADI" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_TUTANAK_DURUMU, listPCTutanak, "Tutanak", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listPCTeslim = new List<SelectListItem>();
+
+                            listPCTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI ", Value = "TESLIM EDILDI" });
+                            listPCTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "Teslim EDILMEDI" }); }
+                        @Html.DropDownListFor(model => model.BILGISAYAR_TESLIM_DURUMU, listPCTeslim, "Teslim Durumu ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.BILGISAYAR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "PC-Açıklama" } })
+                        @Html.ValidationMessageFor(model => model.BILGISAYAR_ACIKLAMA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                <h4 style="text-align:center">DISPLAY</h4>
+                @*Monitor Bilgileri*@
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listMonitorMarka = new List<SelectListItem>();
+
+                            listMonitorMarka.Add(new SelectListItem { Text = "DELL", Value = "DELL" });
+                            listMonitorMarka.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                            listMonitorMarka.Add(new SelectListItem { Text = "PHILIPS", Value = "PHILIPS" });
+                            listMonitorMarka.Add(new SelectListItem { Text = "SAMSUNG", Value = "SAMSUNG" }); }
+                        @Html.DropDownListFor(model => model.MONITOR_MARKA, listMonitorMarka, "Marka", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MONITOR_MARKA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MONITOR_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                        @Html.ValidationMessageFor(model => model.MONITOR_MODEL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MONITOR_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                        @Html.ValidationMessageFor(model => model.MONITOR_SERI_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listMonitorInch = new List<SelectListItem>();
+
+                            listMonitorInch.Add(new SelectListItem { Text = "14", Value = "14" });
+                            listMonitorInch.Add(new SelectListItem { Text = "17", Value = "17" });
+                            listMonitorInch.Add(new SelectListItem { Text = "23", Value = "23" });
+                            listMonitorInch.Add(new SelectListItem { Text = "27", Value = "27" }); }
+                        @Html.DropDownListFor(model => model.MONITOR_INCH, listMonitorInch, "Inch ", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MONITOR_INCH, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listMonitorTeslim = new List<SelectListItem>();
+
+
+                            listMonitorTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI ", Value = "TESLIM EDILDI" });
+                            listMonitorTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "Teslim EDILMEDI" });
+                        }
+                        @Html.DropDownListFor(model => model.MONITOR_TESLIM_DURUMU, listMonitorTeslim, "Teslim Durumu ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MONITOR_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listMonitorTutanak = new List<SelectListItem>();
+
+                            listMonitorTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULDU", Value = "TUTANAK TUTULDU" });
+                            listMonitorTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULMADI", Value = "TUTANAK TUTULMADI" }); }
+                        @Html.DropDownListFor(model => model.MONITOR_TUTANAK_DURUMU, listMonitorTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MONITOR_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.MONITOR_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                        @Html.ValidationMessageFor(model => model.MONITOR_ACIKLAMA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                @*Yazıcı*@
+                <h4 style="text-align:center">PRINTER</h4>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listYazıcı = new List<SelectListItem>();
+
+                            listYazıcı.Add(new SelectListItem { Text = "HP", Value = "HP" });
+                            listYazıcı.Add(new SelectListItem { Text = "LEXMARK", Value = "LEXMARK" });
+                            listYazıcı.Add(new SelectListItem { Text = "CANON", Value = "CANON" });
+                            listYazıcı.Add(new SelectListItem { Text = "SAMSUNG", Value = "SAMSUNG" });
+                            listYazıcı.Add(new SelectListItem { Text = "ZEBRA", Value = "ZEBRA" });
+                            listYazıcı.Add(new SelectListItem { Text = "RICOH", Value = "RICOH" }); }
+                        @Html.DropDownListFor(model => model.YAZICI_MARKA, listYazıcı, "Marka ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZICI_MARKA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_MODEL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Seri No" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_SERI_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_TONER_KARTUS_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Mürekkep Kodu" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_TONER_KARTUS_KODU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_BAGLI_KULLANICI, new { htmlAttributes = new { @class = "form-control", placeholder = "Bağlı Kullanıcı" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_BAGLI_KULLANICI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listYazıcıUsb = new List<SelectListItem>();
+
+                            listYazıcıUsb.Add(new SelectListItem { Text = "USB", Value = "USB" });
+                            listYazıcıUsb.Add(new SelectListItem { Text = "NETWORK", Value = "NETWORK" });
+                            listYazıcıUsb.Add(new SelectListItem { Text = "WIFI", Value = "WIFI" }); }
+                        @Html.DropDownListFor(model => model.YAZICI_USB, listYazıcıUsb, "Bağlantı Türü ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZICI_USB, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_IP_ADRESI, new { htmlAttributes = new { @class = "form-control", placeholder = "Ip Adresi" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_IP_ADRESI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listYazıcıMurekkep = new List<SelectListItem>();
+
+
+                            listYazıcıMurekkep.Add(new SelectListItem { Text = "KARTUŞ", Value = "KARTUŞ" });
+                            listYazıcıMurekkep.Add(new SelectListItem { Text = "TONER", Value = "TONER" }); }
+                        @Html.DropDownListFor(model => model.YAZICI_MUREKKEP_TURU, listYazıcıMurekkep, "Mürekkep Türü ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZICI_MUREKKEP_TURU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listYazıcıTeslim = new List<SelectListItem>();
+
+                            listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
+                            listYazıcıTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
+                        @Html.DropDownListFor(model => model.YAZICI_TESLIM_DURUMU, listYazıcıTeslim, "Teslim Durumu ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZICI_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listYazıcıTutanak = new List<SelectListItem>();
+
+                            listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULDU", Value = "TUTANAK TUTULDU" });
+                            listYazıcıTutanak.Add(new SelectListItem { Text = "TUTANAK TUTULMADI", Value = "TUTANAK TUTULMADI" }); }
+                        @Html.DropDownListFor(model => model.YAZICI_TUTANAK_DURUMU, listYazıcıTutanak, "Tutanak Durumu ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZICI_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZICI_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                        @Html.ValidationMessageFor(model => model.YAZICI_ACIKLAMA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                @*Teams&Office*@
+                <h4 style="text-align:center">TEAMS&OFFICE</h4>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, new { htmlAttributes = new { @class = "form-control", placeholder = "Username" } })
+                        @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_KULLANICI_ADI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listOffice = new List<SelectListItem>();
+
+                            listOffice.Add(new SelectListItem { Text = "Office 2007", Value = "Office 2007" });
+                            listOffice.Add(new SelectListItem { Text = "Office 2010", Value = "Office 2010" });
+                            listOffice.Add(new SelectListItem { Text = "Office 365", Value = "Office 365" });
+                        }
+                        @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, listOffice, "M.S Office Sürümü?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_MS_365_STATU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listTeams = new List<SelectListItem>();
+
+                            listTeams.Add(new SelectListItem { Text = "Kuruldu", Value = "Kuruldu" });
+                            listTeams.Add(new SelectListItem { Text = "Kurulmadı", Value = "Kurulmadı" });
+
+                        }
+                        @Html.DropDownListFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, listTeams, "Teams ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_TEAMS_STATU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Parola" } })
+                        @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_SIFRE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, new { htmlAttributes = new { @class = "form-control", placeholder = "Alternatif Parola" } })
+                        @Html.ValidationMessageFor(model => model.YAZILIM_OFFICE_TEAMS_ALTERNATIF_SIFRE, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                @*SAP*@
+                <h4 style="text-align:center">SAP</h4>
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listSapModul = new List<SelectListItem>();
+
+                            listSapModul.Add(new SelectListItem { Text = "SAP_MM", Value = "SAP_MM" });
+                            listSapModul.Add(new SelectListItem { Text = "SAP_EWM", Value = "SAP_EWM" });
+                            listSapModul.Add(new SelectListItem { Text = "SAP_PP", Value = "SAP_PP" });
+                            listSapModul.Add(new SelectListItem { Text = "SAP_PM", Value = "SAP_PM" });
+                            listSapModul.Add(new SelectListItem { Text = "SAP_HR", Value = "SAP_HR" }); }
+                        @Html.DropDownListFor(model => model.SAP_MODUL, listSapModul, "Modül ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SAP_MODUL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_EMAIL_ADRES, new { htmlAttributes = new { @class = "form-control", placeholder = "Email" } })
+                        @Html.ValidationMessageFor(model => model.SAP_EMAIL_ADRES, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_YETKILENDIRME, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Yetki" } })
+                        @Html.ValidationMessageFor(model => model.SAP_YETKILENDIRME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_KULLANICI_KODU, new { htmlAttributes = new { @class = "form-control", placeholder = "Kullanıcı Kodu" } })
+                        @Html.ValidationMessageFor(model => model.SAP_KULLANICI_KODU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_PAROLA, new { htmlAttributes = new { @class = "form-control", placeholder = "SAP Parola" } })
+                        @Html.ValidationMessageFor(model => model.SAP_PAROLA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_LOGONA_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "Logona Name" } })
+                        @Html.ValidationMessageFor(model => model.SAP_LOGONA_NAME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_SCN_NAME, new { htmlAttributes = new { @class = "form-control", placeholder = "SCN Name" } })
+                        @Html.ValidationMessageFor(model => model.SAP_SCN_NAME, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.SAP_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                        @Html.ValidationMessageFor(model => model.SAP_ACIKLAMA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-2">
+                @*WINN*@
+                <h4 style="text-align:center">WINN</h4>
+
+                <div class="form-group">
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listWINNMarka = new List<SelectListItem>();
+
+                            listWINNMarka.Add(new SelectListItem { Text = "TURKCELL", Value = "TURKCELL" });
+                            listWINNMarka.Add(new SelectListItem { Text = "VODAFONE", Value = "VODEFONE" });
+                            listWINNMarka.Add(new SelectListItem { Text = "TURK TELEKOM", Value = "TURK TELEKOM" }); }
+
+                        @Html.DropDownListFor(model => model.VINN_MARKA, listWINNMarka, "Marka ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VINN_MARKA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VINN_MODEL, new { htmlAttributes = new { @class = "form-control", placeholder = "Model" } })
+                        @Html.ValidationMessageFor(model => model.VINN_MODEL, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VINN_HAT_NUMARASI, new { htmlAttributes = new { @class = "form-control", placeholder = "Hat Numarası" } })
+                        @Html.ValidationMessageFor(model => model.VINN_HAT_NUMARASI, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VINN_SERI_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Vınn Seri Numarası" } })
+                        @Html.ValidationMessageFor(model => model.VINN_SERI_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VINN_PIN_NO, new { htmlAttributes = new { @class = "form-control", placeholder = "Pin No" } })
+                        @Html.ValidationMessageFor(model => model.VINN_PIN_NO, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listWINNTutanak = new List<SelectListItem>();
+
+                            listWINNTutanak.Add(new SelectListItem { Text = "Tutuldu", Value = "Tutuldu" });
+                            listWINNTutanak.Add(new SelectListItem { Text = "Tutulmadı", Value = "Tutulmadı" }); }
+                        @Html.DropDownListFor(model => model.VINN_TUTANAK_DURUMU, listWINNTutanak, "Tutanak ?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VINN_TUTANAK_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @{ List<SelectListItem> listWINNTeslim = new List<SelectListItem>();
+
+                            listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILDI", Value = "TESLIM EDILDI" });
+                            listWINNTeslim.Add(new SelectListItem { Text = "TESLIM EDILMEDI", Value = "TESLIM EDILMEDI" }); }
+                        @Html.DropDownListFor(model => model.VINN_TESLIM_DURUMU, listWINNTeslim, "Teslim Durumu?", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.VINN_TESLIM_DURUMU, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group">
+
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.VINN_ACIKLAMA, new { htmlAttributes = new { @class = "form-control", placeholder = "Açıklama" } })
+                        @Html.ValidationMessageFor(model => model.VINN_ACIKLAMA, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>}
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
